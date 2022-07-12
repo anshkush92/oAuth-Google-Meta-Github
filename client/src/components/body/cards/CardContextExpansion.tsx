@@ -14,7 +14,7 @@ const CardContextExpansion = () => {
       <Typography variant="h6" gutterBottom>
         Heading
       </Typography>
-      <Typography variant="body2" m={0}>
+      <Typography variant="body2" component="div" m={0}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
         <Collapse in={isExpanded} timeout="auto">
           Maiores ducimus quam ipsum esse obcaecati laudantium id blanditiis

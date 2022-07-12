@@ -6,3 +6,4 @@
 - [Material UI Card](https://mui.com/material-ui/react-card/#api)
 - [Material UI Chip](https://mui.com/material-ui/react-chip/#main-content)
 - [Material UI Grid](https://mui.com/material-ui/react-grid/#main-content)
+- [Faker JS Word](https://fakerjs.dev/api/word.html)
