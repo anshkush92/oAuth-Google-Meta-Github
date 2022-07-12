@@ -40,19 +40,22 @@ const Cards = () => {
         title={
           <Grid container spacing={1}>
             <Grid item>
-              <Chip label="Android"></Chip>
+              <Chip label="Android" color="primary"></Chip>
             </Grid>
             <Grid item>
-              <Chip label="Development"></Chip>
+              <Chip label="Development" color="info"></Chip>
             </Grid>
             <Grid item>
-              <Chip label="Blockchain"></Chip>
+              <Chip label="Blockchain" color="warning"></Chip>
             </Grid>
             <Grid item>
-              <Chip label="Cloud"></Chip>
+              <Chip label="Cloud" color="error"></Chip>
             </Grid>
             <Grid item>
-              <Chip label="Docker"></Chip>
+              <Chip label="Docker" color="secondary"></Chip>
+            </Grid>
+            <Grid item>
+              <Chip label="AWS" color="default" sx={{backgroundColor: "green", color: "white"}}></Chip>
             </Grid>
           </Grid>
         }
