@@ -2,13 +2,13 @@
 import React from "react";
 
 // Test -------------------------- Importing the styles / other components ----------------
-import Cards from "./cards/Cards";
+import CompleteCards from "./cards/CompleteCards";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
 const Body = () => {
-  return <Cards></Cards>;
+  return <CompleteCards></CompleteCards>;
 };
 
 // Test -------------------------- Exporting the current component ------------------------

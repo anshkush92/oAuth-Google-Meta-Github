@@ -9,7 +9,7 @@ import { CardMedia } from "@mui/material";
 const CardMediaImage = () => {
   return (
     <CardMedia
-      height={160}
+      height={180}
       component="img"
       image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
       alt="Iguna"

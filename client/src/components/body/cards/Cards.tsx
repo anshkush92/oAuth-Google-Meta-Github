@@ -4,22 +4,24 @@ import CardContextExpansion from "./CardContextExpansion";
 import CardMediaImage from "./CardMediaImage";
 
 // Test -------------------------- Importing the styles / other components ----------------
-
 import CardsFooter from "./CardsFooter";
 import CardsHeaderChips from "./CardsHeaderChips";
 
 // Test -------------------------- Structure of Props ----------------------------------
+type CardsProps = {
+  heading?: string;
+  paragraph?: string;
+  chips?: string[];
+  names?: string;
+  imagesUrl: string;
+};
 
 // Test -------------------------- The current component ----------------------------------
-const Cards = () => {
+const Cards = ({ heading, paragraph, chips }: CardsProps) => {
   return (
     <Card
       sx={{
-        maxWidth: "400px",
-        mt: 2,
-        mb: 2,
-        ml: "auto",
-        mr: "auto",
+        maxWidth: "300px",
         borderRadius: 2,
       }}
     >
