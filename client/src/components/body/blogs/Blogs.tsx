@@ -7,9 +7,9 @@ import React from "react";
 
 // Test -------------------------- The current component ----------------------------------
 
-const Body = () => {
-  return <div>Body</div>;
+const Blogs = () => {
+  return <div>Blogs</div>;
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default Body;
+export default Blogs;

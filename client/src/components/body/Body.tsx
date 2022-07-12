@@ -1,22 +1,15 @@
 // Test -------------------------- Importing the Packages ---------------------------------
+import React from "react";
 
 // Test -------------------------- Importing the styles / other components ----------------
-import Navbar from "../components/navbar/Navbar";
-import Body from "../components/body/Body";
-import Footer from "../components/footer/Footer";
+import Cards from "./cards/Cards";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
-const Home = () => {
-  return (
-    <>
-      <Navbar></Navbar>
-      <Body></Body>
-      <Footer></Footer>
-    </>
-  );
+const Body = () => {
+  return <Cards></Cards>;
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default Home;
+export default Body;
