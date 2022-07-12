@@ -12,6 +12,9 @@ import {
   MenuItem,
   ListItemIcon,
   ListItemText,
+  Paper,
+  InputBase,
+  Divider,
 } from "@mui/material";
 
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
@@ -19,6 +22,7 @@ import FeedIcon from "@mui/icons-material/Feed";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
+import SearchIcon from "@mui/icons-material/Search";
 
 // Test -------------------------- Importing the styles / other components ----------------
 
@@ -48,6 +52,13 @@ const Navbar = () => {
           >
             Vault
           </Button>
+
+          <Paper sx={{ display: "flex", alignItems: "center", ml: 2 }}>
+            <InputBase></InputBase>
+            <Divider sx={{ height: "28px", m: 0.5, backgroundColor: "red" }} orientation="vertical" />
+            <SearchIcon></SearchIcon>
+          </Paper>
+
           <Tooltip title="See all the blogs" arrow>
             <IconButton>
               <FeedIcon sx={{ color: "white" }}></FeedIcon>
@@ -56,9 +67,6 @@ const Navbar = () => {
 
           <Button sx={{ color: "white" }}>Sign Up</Button>
           <Button sx={{ color: "white" }}>Login</Button>
-          <Button sx={{ color: "white" }} endIcon={<LogoutIcon></LogoutIcon>}>
-            Logout
-          </Button>
 
           <Tooltip title="Click to get different menu items">
             <>
@@ -68,7 +76,7 @@ const Navbar = () => {
                   alt="Ansh Singh"
                 ></Avatar>
               </IconButton>
-
+              Ansh
               <Menu
                 open={open}
                 anchorEl={anchorElement}
