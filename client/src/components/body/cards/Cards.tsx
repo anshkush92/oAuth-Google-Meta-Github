@@ -11,7 +11,7 @@ import CardsHeaderChips from "./CardsHeaderChips";
 type CardsProps = {
   heading: string;
   paragraph: string;
-  chips: string[];
+  chips: string;
   name: string;
   imageUrl: string;
   avatar: string;
@@ -38,11 +38,14 @@ const Cards = ({
       </Box>
 
       <Box id="Card-Chips">
-        <CardsHeaderChips></CardsHeaderChips>
+        <CardsHeaderChips chips={chips}></CardsHeaderChips>
       </Box>
 
       <Box id="Card-content-heading-paragraph">
-        <CardContextExpansion heading={heading} paragraph={paragraph}></CardContextExpansion>
+        <CardContextExpansion
+          heading={heading}
+          paragraph={paragraph}
+        ></CardContextExpansion>
       </Box>
 
       <Box id="card-footer-avatar-button">

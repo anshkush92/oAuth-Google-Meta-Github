@@ -1,38 +1,52 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { CardHeader, Grid, Chip } from "@mui/material";
+import { colorsChip } from "../../../types/colors.type";
 
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- Structure of Props ----------------------------------
+type CardsHeaderChipsProps = {
+  chips: string;
+};
 
 // Test -------------------------- The current component ----------------------------------
-const CardsHeaderChips = () => {
+const CardsHeaderChips = ({ chips }: CardsHeaderChipsProps) => {
+  console.log(chips);
+  let usingChips: string[] = [];
+
+  // My own logic for seperating the strings
+  let start = 0;
+  for (let i = 0; i < chips.length; i++) {
+    if (chips[i] === " ") {
+      usingChips.push(chips.substring(start, i));
+      start = i + 1;
+    } else if (i === chips.length - 1) {
+      usingChips.push(chips.substring(start, i + 1));
+    }
+  }
+
+  console.log(usingChips);
+
+  const colors = [
+    "primary",
+    "secondary",
+    "info",
+    "default",
+    "error",
+    "success",
+    "warning",
+  ];
+  const variant = ["outlined", "filled"];
+
   return (
     <CardHeader
       title={
         <Grid container spacing={1}>
-          <Grid item>
-            <Chip label="Android" color="primary"></Chip>
-          </Grid>
-          <Grid item>
-            <Chip label="Development" color="info"></Chip>
-          </Grid>
-          <Grid item>
-            <Chip
-              label="AWS"
-              color="default"
-              sx={{ backgroundColor: "green", color: "white" }}
-            ></Chip>
-          </Grid>
-          <Grid item>
-            <Chip label="Blockchain" variant="outlined" color="warning"></Chip>
-          </Grid>
-          <Grid item>
-            <Chip label="Cloud" variant="outlined" color="error"></Chip>
-          </Grid>
-          <Grid item>
-            <Chip label="Docker" variant="outlined" color="secondary"></Chip>
-          </Grid>
+          {usingChips.map((chip) => (
+            <Grid item>
+              <Chip label={chip}></Chip>
+            </Grid>
+          ))}
         </Grid>
       }
     ></CardHeader>

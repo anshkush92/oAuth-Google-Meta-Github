@@ -36,7 +36,7 @@ const CardsFooter = ({ avatar, name }: CardsFooterProps) => {
         subheader="12/07/2022"
       ></CardHeader>
       <CardActions>
-        <IconButton onClick={onClickCardButton} size="large">
+        <IconButton onClick={onClickCardButton} size="large" color="primary">
           {isExpanded ? (
             <ExpandLessIcon></ExpandLessIcon>
           ) : (

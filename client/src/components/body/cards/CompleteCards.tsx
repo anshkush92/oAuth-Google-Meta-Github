@@ -19,7 +19,7 @@ const CompleteCards = () => {
           <Cards
             heading={heading[index]}
             paragraph={paragraph[index]}
-            chips={chips[index].split("")}
+            chips={chips[index]}
             name={names[index]}
             imageUrl={imagesUrl[index]}
             avatar={avatars[index]}
