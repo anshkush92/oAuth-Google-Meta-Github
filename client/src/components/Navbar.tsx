@@ -44,68 +44,95 @@ const Navbar = () => {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar sx={{ backgroundColor: "#67568c" }}>
-          <Button
-            variant="contained"
-            sx={{ color: "white" }}
-            startIcon={<VpnKeyIcon sx={{ color: "white" }}></VpnKeyIcon>}
-          >
-            Vault
-          </Button>
+        <Toolbar
+          sx={{
+            display: "flex",
+            flex: 1,
+            justifyContent: "space-between",
+            backgroundColor: "#67568c",
+          }}
+        >
+          <Box>
+            <Button
+              variant="contained"
+              sx={{ color: "white", backgroundColor: "black" }}
+              startIcon={<VpnKeyIcon sx={{ color: "white" }}></VpnKeyIcon>}
+            >
+              Vault
+            </Button>
+          </Box>
 
-          <Paper sx={{ display: "flex", alignItems: "center", ml: 2 }}>
-            <InputBase></InputBase>
-            <Divider sx={{ height: "28px", m: 0.5, backgroundColor: "red" }} orientation="vertical" />
-            <SearchIcon></SearchIcon>
-          </Paper>
+          <Box flex={0.5}>
+            <Paper
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                pl: 1,
+                pr: 1,
+              }}
+            >
+              <InputBase
+                fullWidth
+                placeholder="Search the blogs...."
+              ></InputBase>
+              <Divider
+                flexItem
+                sx={{ m: 0.5, backgroundColor: "red" }}
+                orientation="vertical"
+              />
+              <SearchIcon></SearchIcon>
+            </Paper>
+          </Box>
 
-          <Tooltip title="See all the blogs" arrow>
-            <IconButton>
-              <FeedIcon sx={{ color: "white" }}></FeedIcon>
-            </IconButton>
-          </Tooltip>
-
-          <Button sx={{ color: "white" }}>Sign Up</Button>
-          <Button sx={{ color: "white" }}>Login</Button>
-
-          <Tooltip title="Click to get different menu items">
-            <>
-              <IconButton onClick={avatarMenuOpenClick}>
-                <Avatar
-                  src="https://mui.com/static/images/avatar/2.jpg"
-                  alt="Ansh Singh"
-                ></Avatar>
+          <Box>
+            <Tooltip title="See all the blogs" arrow>
+              <IconButton>
+                <FeedIcon sx={{ color: "white" }}></FeedIcon>
               </IconButton>
-              Ansh
-              <Menu
-                open={open}
-                anchorEl={anchorElement}
-                onClose={avatarMenuCloseClick}
-                disableScrollLock
-              >
-                <MenuItem onClick={avatarMenuCloseClick}>
-                  <ListItemIcon>
-                    <AccountCircleIcon></AccountCircleIcon>
-                  </ListItemIcon>
-                  <ListItemText>Profile</ListItemText>
-                </MenuItem>
+            </Tooltip>
 
-                <MenuItem onClick={avatarMenuCloseClick}>
-                  <ListItemIcon>
-                    <SettingsIcon></SettingsIcon>
-                  </ListItemIcon>
-                  <ListItemText>Settings</ListItemText>
-                </MenuItem>
+            <Button sx={{ color: "white" }}>Sign Up</Button>
+            <Button sx={{ color: "white" }}>Login</Button>
 
-                <MenuItem onClick={avatarMenuCloseClick}>
-                  <ListItemIcon>
-                    <LogoutIcon></LogoutIcon>
-                  </ListItemIcon>
-                  <ListItemText>Logout</ListItemText>
-                </MenuItem>
-              </Menu>
-            </>
-          </Tooltip>
+            <Tooltip title="Click to get different menu items">
+              <>
+                <IconButton onClick={avatarMenuOpenClick}>
+                  <Avatar
+                    src="https://mui.com/static/images/avatar/2.jpg"
+                    alt="Ansh Singh"
+                  ></Avatar>
+                </IconButton>
+                Ansh
+                <Menu
+                  open={open}
+                  anchorEl={anchorElement}
+                  onClose={avatarMenuCloseClick}
+                  disableScrollLock
+                >
+                  <MenuItem onClick={avatarMenuCloseClick}>
+                    <ListItemIcon>
+                      <AccountCircleIcon></AccountCircleIcon>
+                    </ListItemIcon>
+                    <ListItemText>Profile</ListItemText>
+                  </MenuItem>
+
+                  <MenuItem onClick={avatarMenuCloseClick}>
+                    <ListItemIcon>
+                      <SettingsIcon></SettingsIcon>
+                    </ListItemIcon>
+                    <ListItemText>Settings</ListItemText>
+                  </MenuItem>
+
+                  <MenuItem onClick={avatarMenuCloseClick}>
+                    <ListItemIcon>
+                      <LogoutIcon></LogoutIcon>
+                    </ListItemIcon>
+                    <ListItemText>Logout</ListItemText>
+                  </MenuItem>
+                </Menu>
+              </>
+            </Tooltip>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

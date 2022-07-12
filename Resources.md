@@ -2,3 +2,4 @@
 - [Material UI Menu](https://mui.com/material-ui/react-menu/#main-content)
 - [Material UI Button](https://mui.com/material-ui/react-button/#main-content)
 - [Material UI TextField](https://mui.com/material-ui/react-text-field/#main-content)
+- [Materil UI Divider](https://mui.com/material-ui/react-divider/#main-content)
