@@ -9,12 +9,12 @@ import CardsHeaderChips from "./CardsHeaderChips";
 
 // Test -------------------------- Structure of Props ----------------------------------
 type CardsProps = {
-  heading?: string;
-  paragraph?: string;
-  chips?: string[];
-  name?: string;
-  imageUrl?: string;
-  avatar?: string;
+  heading: string;
+  paragraph: string;
+  chips: string[];
+  name: string;
+  imageUrl: string;
+  avatar: string;
 };
 
 // Test -------------------------- The current component ----------------------------------
@@ -34,7 +34,7 @@ const Cards = ({
       }}
     >
       <Box id="Card-media-images">
-        <CardMediaImage imageUrl={imageUrl || "hello"}></CardMediaImage>
+        <CardMediaImage imageUrl={imageUrl}></CardMediaImage>
       </Box>
 
       <Box id="Card-Chips">
@@ -42,11 +42,11 @@ const Cards = ({
       </Box>
 
       <Box id="Card-content-heading-paragraph">
-        <CardContextExpansion></CardContextExpansion>
+        <CardContextExpansion heading={heading} paragraph={paragraph}></CardContextExpansion>
       </Box>
 
       <Box id="card-footer-avatar-button">
-        <CardsFooter></CardsFooter>
+        <CardsFooter avatar={avatar} name={name}></CardsFooter>
       </Box>
     </Card>
   );

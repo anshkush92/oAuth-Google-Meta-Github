@@ -4,22 +4,27 @@ import { useAppSelector } from "../../../app/hooks";
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- Structure of Props ----------------------------------
+type CardContextExpansionProps = {
+  heading: string;
+  paragraph: string;
+};
 
 // Test -------------------------- The current component ----------------------------------
-const CardContextExpansion = () => {
+const CardContextExpansion = ({
+  heading,
+  paragraph,
+}: CardContextExpansionProps) => {
   const isExpanded = useAppSelector((state) => state.toggleCard.isExpanded);
 
   return (
     <CardContent sx={{ pt: 0 }}>
       <Typography variant="h6" gutterBottom>
-        Heading
+        {heading.charAt(0).toUpperCase() + heading.slice(1)}
       </Typography>
       <Typography variant="body2" component="div" m={0}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        {paragraph.split(".")[0]}
         <Collapse in={isExpanded} timeout="auto">
-          Maiores ducimus quam ipsum esse obcaecati laudantium id blanditiis
-          asperiores earum vero, voluptate nulla aspernatur, eius sit architecto
-          adipisci fugit maxime quidem.
+          {paragraph.slice(paragraph.indexOf("."))}
         </Collapse>
       </Typography>
     </CardContent>
