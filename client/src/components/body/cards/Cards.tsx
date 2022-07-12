@@ -1,4 +1,5 @@
 // Test -------------------------- Importing the Packages ---------------------------------
+import { useState } from "react";
 import {
   Card,
   CardMedia,
@@ -11,6 +12,7 @@ import {
   Box,
   Chip,
   Grid,
+  Collapse,
 } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
@@ -19,6 +21,12 @@ import {
 
 // Test -------------------------- The current component ----------------------------------
 const Cards = () => {
+  const [isExpanded, setisExpanded] = useState(false);
+
+  const onClickToggleExpand = () => {
+    setisExpanded((previousState) => !previousState);
+  };
+
   return (
     <Card
       sx={{
@@ -46,16 +54,24 @@ const Cards = () => {
               <Chip label="Development" color="info"></Chip>
             </Grid>
             <Grid item>
-              <Chip label="Blockchain" color="warning"></Chip>
+              <Chip
+                label="AWS"
+                color="default"
+                sx={{ backgroundColor: "green", color: "white" }}
+              ></Chip>
             </Grid>
             <Grid item>
-              <Chip label="Cloud" color="error"></Chip>
+              <Chip
+                label="Blockchain"
+                variant="outlined"
+                color="warning"
+              ></Chip>
             </Grid>
             <Grid item>
-              <Chip label="Docker" color="secondary"></Chip>
+              <Chip label="Cloud" variant="outlined" color="error"></Chip>
             </Grid>
             <Grid item>
-              <Chip label="AWS" color="default" sx={{backgroundColor: "green", color: "white"}}></Chip>
+              <Chip label="Docker" variant="outlined" color="secondary"></Chip>
             </Grid>
           </Grid>
         }
@@ -66,10 +82,12 @@ const Cards = () => {
           Heading
         </Typography>
         <Typography variant="body2" m={0}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores
-          ducimus quam ipsum esse obcaecati laudantium id blanditiis asperiores
-          earum vero, voluptate nulla aspernatur, eius sit architecto adipisci
-          fugit maxime quidem.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          <Collapse in={isExpanded} timeout="auto">
+            Maiores ducimus quam ipsum esse obcaecati laudantium id blanditiis
+            asperiores earum vero, voluptate nulla aspernatur, eius sit
+            architecto adipisci fugit maxime quidem.
+          </Collapse>
         </Typography>
       </CardContent>
       <Box display="flex" justifyContent="space-between">
@@ -80,11 +98,13 @@ const Cards = () => {
               alt="Ansh"
             ></Avatar>
           }
-          title="Written By"
-          subheader="Ansh Singh"
+          title="Ansh Singh"
+          subheader="12/07/2022"
         ></CardHeader>
         <CardActions>
-          <Button>Read More</Button>
+          <Button onClick={onClickToggleExpand}>
+            {isExpanded ? "Show Less" : "Read More"}
+          </Button>
         </CardActions>
       </Box>
     </Card>
