@@ -19,16 +19,20 @@ const useFakeData = () => {
     let chips: string[] = [];
     let names: string[] = [];
     let imagesUrl: string[] = [];
+    let avatars: string[] = [];
 
     for (let i = 1; i <= 9; i++) {
       heading.push(faker.word.noun());
       paragraph.push(faker.lorem.paragraph(Math.floor(Math.random() * 8) + 1));
       chips.push(faker.lorem.words(Math.floor(Math.random() * 8) + 1));
       names.push(faker.name.findName());
-      imagesUrl.push(faker.image.avatar());
+      avatars.push(faker.image.avatar());
+      imagesUrl.push(faker.image.animals(640, 480, true));
     }
 
-    dispatch(getFakeData({ heading, paragraph, chips, names, imagesUrl }));
+    dispatch(
+      getFakeData({ heading, paragraph, chips, names, imagesUrl, avatars })
+    );
   }, [dispatch]);
 
   return fakeData;

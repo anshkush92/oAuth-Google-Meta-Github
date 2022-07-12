@@ -12,12 +12,20 @@ type CardsProps = {
   heading?: string;
   paragraph?: string;
   chips?: string[];
-  names?: string;
-  imagesUrl: string;
+  name?: string;
+  imageUrl?: string;
+  avatar?: string;
 };
 
 // Test -------------------------- The current component ----------------------------------
-const Cards = ({ heading, paragraph, chips }: CardsProps) => {
+const Cards = ({
+  heading,
+  paragraph,
+  chips,
+  name,
+  imageUrl,
+  avatar,
+}: CardsProps) => {
   return (
     <Card
       sx={{
@@ -26,7 +34,7 @@ const Cards = ({ heading, paragraph, chips }: CardsProps) => {
       }}
     >
       <Box id="Card-media-images">
-        <CardMediaImage></CardMediaImage>
+        <CardMediaImage imageUrl={imageUrl || "hello"}></CardMediaImage>
       </Box>
 
       <Box id="Card-Chips">

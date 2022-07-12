@@ -4,14 +4,17 @@ import { CardMedia } from "@mui/material";
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- Structure of Props ----------------------------------
+type CardMediaImageProps = {
+  imageUrl: string;
+};
 
 // Test -------------------------- The current component ----------------------------------
-const CardMediaImage = () => {
+const CardMediaImage = ({ imageUrl }: CardMediaImageProps) => {
   return (
     <CardMedia
       height={180}
       component="img"
-      image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+      image={imageUrl}
       alt="Iguna"
     ></CardMedia>
   );

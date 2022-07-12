@@ -16,6 +16,7 @@ export const fakeDataSlice = createSlice({
       state.chips = action.payload.chips;
       state.names = action.payload.names;
       state.imagesUrl = action.payload.imagesUrl;
+      state.avatars = action.payload.avatars;
     },
   },
 });

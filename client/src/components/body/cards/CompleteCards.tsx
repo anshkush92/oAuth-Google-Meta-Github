@@ -9,7 +9,7 @@ import { useAppSelector } from "../../../app/hooks";
 
 // Test -------------------------- The current component ----------------------------------
 const CompleteCards = () => {
-  const { chips, heading, paragraph, names, imagesUrl } = useAppSelector(
+  const { chips, heading, paragraph, names, imagesUrl, avatars } = useAppSelector(
     (state) => state.fakeData
   );
   return (
@@ -20,8 +20,9 @@ const CompleteCards = () => {
             heading={heading[index]}
             paragraph={paragraph[index]}
             chips={chips[index].split("")}
-            names={names[index]}
-            imagesUrl={imagesUrl[index]}
+            name={names[index]}
+            imageUrl={imagesUrl[index]}
+            avatar={avatars[index]}
           ></Cards>
         </Grid>
       ))}

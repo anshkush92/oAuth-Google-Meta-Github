@@ -4,4 +4,5 @@ export type FakeData = {
   chips: string[];
   names: string[];
   imagesUrl: string[];
+  avatars: string[];
 };
