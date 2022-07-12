@@ -1,5 +1,4 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { useState } from "react";
 import {
   Card,
   CardMedia,
@@ -16,15 +15,18 @@ import {
 } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import { onClickToggleExpand } from "../../../features/toggleCardExpand/toggleCard";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
 const Cards = () => {
-  const [isExpanded, setisExpanded] = useState(false);
+  const isExpanded = useAppSelector((state) => state.toggleCard.isExpanded);
+  const dispatch = useAppDispatch();
 
-  const onClickToggleExpand = () => {
-    setisExpanded((previousState) => !previousState);
+  const onClickCardButton = () => {
+    dispatch(onClickToggleExpand());
   };
 
   return (
@@ -102,7 +104,7 @@ const Cards = () => {
           subheader="12/07/2022"
         ></CardHeader>
         <CardActions>
-          <Button onClick={onClickToggleExpand}>
+          <Button onClick={onClickCardButton} variant="outlined">
             {isExpanded ? "Show Less" : "Read More"}
           </Button>
         </CardActions>

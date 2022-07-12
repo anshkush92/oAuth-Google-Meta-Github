@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import toggleCardReducer from "../features/toggleCardExpand/toggleCard";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    toggleCard: toggleCardReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
