@@ -7,3 +7,4 @@
 - [Material UI Chip](https://mui.com/material-ui/react-chip/#main-content)
 - [Material UI Grid](https://mui.com/material-ui/react-grid/#main-content)
 - [Faker JS Word](https://fakerjs.dev/api/word.html)
+- [Convert paragraph into [] of words JS](https://stackoverflow.com/questions/20169809/pushing-each-word-to-an-array)

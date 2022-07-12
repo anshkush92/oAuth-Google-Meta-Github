@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import toggleCardReducer from "../features/toggleCardExpand/toggleCard";
+import fakeDataReducer from "../features/fakeData/fakeData";
 
 export const store = configureStore({
   reducer: {
     toggleCard: toggleCardReducer,
+    fakeData: fakeDataReducer,
   },
 });
 

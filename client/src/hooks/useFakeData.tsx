@@ -1,30 +1,33 @@
 // Test -------------------------- Importing the Packages ---------------------------------
+import { useEffect } from "react";
 import { faker } from "@faker-js/faker";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { getFakeData } from "../features/fakeData/fakeData";
 
 // Test -------------------------- Structure of Props ----------------------------------
-import { FakeData } from "../types/fakeData.type";
 
 // Test -------------------------- The current component ----------------------------------
 const useFakeData = () => {
-  const fakeData = [] as FakeData[];
+  const dispatch = useAppDispatch();
+  const fakeData = useAppSelector((state) => state.fakeData);
 
-  for (let j = 1; j <= 8; j++) {
+  useEffect(() => {
+    let heading: string[] = [];
+    let paragraph: string[] = [];
     let chips: string[] = [];
-    let heading, paragraph: string;
 
-    const randomChips = Math.floor(Math.random() * 8);
-    for (let i = 1; i <= randomChips; i++) {
-      chips.push(faker.word.noun());
+    for (let i = 1; i <= 9; i++) {
+      heading.push(faker.word.noun());
+      paragraph.push(faker.lorem.paragraph(Math.floor(Math.random() * 8) + 1));
+      chips.push(faker.lorem.word(Math.floor(Math.random() * 8) + 1));
     }
-    heading = faker.word.adverb();
-    paragraph = faker.lorem.paragraph();
-    fakeData.push({ heading, paragraph, chips });
-  }
 
-  console.log(fakeData);
-  return;
+    dispatch(getFakeData({ heading, paragraph, chips }));
+  }, [dispatch]);
+
+  return fakeData;
 };
 
 // Test -------------------------- Exporting the current component ------------------------
