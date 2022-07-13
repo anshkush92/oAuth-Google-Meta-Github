@@ -24,6 +24,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SearchIcon from "@mui/icons-material/Search";
+import { VaultButton } from "../../utilities/vault-button";
 
 // Test -------------------------- Importing the styles / other components ----------------
 
@@ -55,16 +56,12 @@ const Navbar = () => {
         >
           <Box>
             <NavLink to="/" style={{ textDecoration: "none" }}>
-              <Button
+              <VaultButton
                 variant="contained"
-                sx={{
-                  color: "white",
-                  backgroundColor: "black",
-                }}
-                startIcon={<VpnKeyIcon sx={{ color: "white" }}></VpnKeyIcon>}
+                startIcon={<VpnKeyIcon></VpnKeyIcon>}
               >
                 Vault
-              </Button>
+              </VaultButton>
             </NavLink>
           </Box>
 

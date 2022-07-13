@@ -45,7 +45,9 @@ const Login = () => {
             title={<Typography variant="h6">The Vault</Typography>}
             subheader={
               <CardActionArea onClick={() => navigate("/signup")}>
-                Dont Have an Account ? Sign Up
+                <Typography variant="body2">
+                  Dont Have an Account ? Sign Up
+                </Typography>
               </CardActionArea>
             }
           ></CardHeader>
