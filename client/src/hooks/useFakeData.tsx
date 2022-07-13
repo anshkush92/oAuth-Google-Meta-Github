@@ -29,7 +29,7 @@ const useFakeData = () => {
       names.push(faker.name.findName());
       avatars.push(faker.image.avatar());
       imagesUrl.push(faker.image.animals(640, 480, true));
-      dates.push(faker.date.birthdate().toLocaleDateString());
+      dates.push(faker.date.birthdate({min: 2000, max: 2030, mode: "year"}).toLocaleDateString("en-GB"));
     }
 
     dispatch(

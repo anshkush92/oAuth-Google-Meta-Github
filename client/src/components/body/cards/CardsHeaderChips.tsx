@@ -18,8 +18,8 @@ const CardsHeaderChips = ({ chips }: CardsHeaderChipsProps) => {
     <CardHeader
       title={
         <Grid container spacing={1}>
-          {usingChips.map((chip) => (
-            <Grid item key={chip}>
+          {usingChips.map((chip, index) => (
+            <Grid item key={index}>
               <Chip
                 label={chip}
                 variant={`${
