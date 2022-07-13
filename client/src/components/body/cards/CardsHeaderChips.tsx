@@ -11,7 +11,6 @@ type CardsHeaderChipsProps = {
 
 // Test -------------------------- The current component ----------------------------------
 const CardsHeaderChips = ({ chips }: CardsHeaderChipsProps) => {
-  console.log(chips);
   let usingChips: string[] = [];
 
   // My own logic for seperating the strings
@@ -25,26 +24,26 @@ const CardsHeaderChips = ({ chips }: CardsHeaderChipsProps) => {
     }
   }
 
-  console.log(usingChips);
-
-  const colors = [
-    "primary",
-    "secondary",
-    "info",
-    "default",
-    "error",
-    "success",
-    "warning",
-  ];
-  const variant = ["outlined", "filled"];
-
   return (
     <CardHeader
       title={
         <Grid container spacing={1}>
           {usingChips.map((chip) => (
-            <Grid item>
-              <Chip label={chip}></Chip>
+            <Grid item key={chip}>
+              <Chip
+                label={chip}
+                variant={`${
+                  Math.floor(Math.random() * 10000) % 2 ? "outlined" : "filled"
+                }`}
+                sx={{
+                  color: `#${Math.floor(Math.random() * 16777215).toString(
+                    16
+                  )}`,
+                  backgroundColor: `#${Math.floor(
+                    Math.random() * 16777215
+                  ).toString(16)}`,
+                }}
+              ></Chip>
             </Grid>
           ))}
         </Grid>

@@ -21,10 +21,10 @@ const CardContextExpansion = ({
       <Typography variant="h6" gutterBottom>
         {heading.charAt(0).toUpperCase() + heading.slice(1)}
       </Typography>
-      <Typography variant="body2" component="div" m={0}>
-        {paragraph.split(".")[0]}
+      <Typography variant="body2" component="span" m={0}>
+        {paragraph.split(".")[0]}{" "}
         <Collapse in={isExpanded} timeout="auto">
-          {paragraph.slice(paragraph.indexOf("."))}
+          {paragraph.slice(paragraph.indexOf(".") + 1)}
         </Collapse>
       </Typography>
     </CardContent>
