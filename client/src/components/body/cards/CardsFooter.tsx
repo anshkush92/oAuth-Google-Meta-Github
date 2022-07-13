@@ -10,22 +10,24 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 // Test -------------------------- Importing the styles / other components ----------------
-import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { onClickToggleExpand } from "../../../features/toggleCardExpand/toggleCard";
 
 // Test -------------------------- Structure of Props ----------------------------------
 type CardsFooterProps = {
   avatar: string;
   name: string;
+  isExpanded: boolean;
+  setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 // Test -------------------------- The current component ----------------------------------
-const CardsFooter = ({ avatar, name }: CardsFooterProps) => {
-  const isExpanded = useAppSelector((state) => state.toggleCard.isExpanded);
-  const dispatch = useAppDispatch();
-
+const CardsFooter = ({
+  avatar,
+  name,
+  isExpanded,
+  setIsExpanded,
+}: CardsFooterProps) => {
   const onClickCardButton = () => {
-    dispatch(onClickToggleExpand());
+    setIsExpanded((previousState) => !previousState);
   };
 
   return (

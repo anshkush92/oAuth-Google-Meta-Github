@@ -1,21 +1,21 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { CardContent, Typography, Collapse } from "@mui/material";
-import { useAppSelector } from "../../../app/hooks";
+
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- Structure of Props ----------------------------------
 type CardContextExpansionProps = {
   heading: string;
   paragraph: string;
+  isExpanded: boolean;
 };
 
 // Test -------------------------- The current component ----------------------------------
 const CardContextExpansion = ({
   heading,
   paragraph,
+  isExpanded,
 }: CardContextExpansionProps) => {
-  const isExpanded = useAppSelector((state) => state.toggleCard.isExpanded);
-
   return (
     <CardContent sx={{ pt: 0 }}>
       <Typography variant="h6" gutterBottom>

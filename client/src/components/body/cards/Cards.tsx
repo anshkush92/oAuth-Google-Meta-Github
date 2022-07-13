@@ -6,6 +6,7 @@ import CardMediaImage from "./CardMediaImage";
 // Test -------------------------- Importing the styles / other components ----------------
 import CardsFooter from "./CardsFooter";
 import CardsHeaderChips from "./CardsHeaderChips";
+import useExpand from "../../../hooks/useExpand";
 
 // Test -------------------------- Structure of Props ----------------------------------
 type CardsProps = {
@@ -26,6 +27,7 @@ const Cards = ({
   imageUrl,
   avatar,
 }: CardsProps) => {
+  const { isExpanded, setIsExpanded } = useExpand();
   return (
     <Card
       sx={{
@@ -45,11 +47,17 @@ const Cards = ({
         <CardContextExpansion
           heading={heading}
           paragraph={paragraph}
+          isExpanded={isExpanded}
         ></CardContextExpansion>
       </Box>
 
       <Box id="card-footer-avatar-button">
-        <CardsFooter avatar={avatar} name={name}></CardsFooter>
+        <CardsFooter
+          avatar={avatar}
+          name={name}
+          isExpanded={isExpanded}
+          setIsExpanded={setIsExpanded}
+        ></CardsFooter>
       </Box>
     </Card>
   );
