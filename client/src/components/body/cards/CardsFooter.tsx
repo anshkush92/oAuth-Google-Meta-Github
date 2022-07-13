@@ -16,6 +16,7 @@ type CardsFooterProps = {
   avatar: string;
   name: string;
   isExpanded: boolean;
+  date: string
   setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -25,6 +26,7 @@ const CardsFooter = ({
   name,
   isExpanded,
   setIsExpanded,
+  date
 }: CardsFooterProps) => {
   const onClickCardButton = () => {
     setIsExpanded((previousState) => !previousState);
@@ -35,7 +37,7 @@ const CardsFooter = ({
       <CardHeader
         avatar={<Avatar src={avatar} alt="Ansh"></Avatar>}
         title={name}
-        subheader="12/07/2022"
+        subheader={date}
       ></CardHeader>
       <CardActions>
         <IconButton onClick={onClickCardButton} size="large" color="primary">

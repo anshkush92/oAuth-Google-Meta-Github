@@ -5,4 +5,5 @@ export type FakeData = {
   names: string[];
   imagesUrl: string[];
   avatars: string[];
+  dates: string[];
 };

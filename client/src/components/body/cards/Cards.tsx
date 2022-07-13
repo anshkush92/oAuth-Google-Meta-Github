@@ -16,6 +16,7 @@ type CardsProps = {
   name: string;
   imageUrl: string;
   avatar: string;
+  date: string;
 };
 
 // Test -------------------------- The current component ----------------------------------
@@ -26,6 +27,7 @@ const Cards = ({
   name,
   imageUrl,
   avatar,
+  date
 }: CardsProps) => {
   const { isExpanded, setIsExpanded } = useExpand();
   return (
@@ -57,6 +59,7 @@ const Cards = ({
           name={name}
           isExpanded={isExpanded}
           setIsExpanded={setIsExpanded}
+          date={date}
         ></CardsFooter>
       </Box>
     </Card>

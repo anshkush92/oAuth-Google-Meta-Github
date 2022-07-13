@@ -20,6 +20,7 @@ const useFakeData = () => {
     let names: string[] = [];
     let imagesUrl: string[] = [];
     let avatars: string[] = [];
+    let dates: string[] = [];
 
     for (let i = 1; i <= 9; i++) {
       heading.push(faker.word.noun());
@@ -28,10 +29,19 @@ const useFakeData = () => {
       names.push(faker.name.findName());
       avatars.push(faker.image.avatar());
       imagesUrl.push(faker.image.animals(640, 480, true));
+      dates.push(faker.date.birthdate().toLocaleDateString());
     }
 
     dispatch(
-      getFakeData({ heading, paragraph, chips, names, imagesUrl, avatars })
+      getFakeData({
+        heading,
+        paragraph,
+        chips,
+        names,
+        imagesUrl,
+        avatars,
+        dates,
+      })
     );
   }, [dispatch]);
 
