@@ -22,7 +22,7 @@ const useFakeData = () => {
     let avatars: string[] = [];
     let dates: string[] = [];
 
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 1; i <= 32; i++) {
       heading.push(faker.word.noun());
       paragraph.push(faker.lorem.paragraph(Math.floor(Math.random() * 8) + 1));
       chips.push(faker.lorem.words(Math.floor(Math.random() * 8) + 1));

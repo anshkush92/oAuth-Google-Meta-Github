@@ -11,7 +11,7 @@ import {
   Grid,
   Divider,
   CardActionArea,
-  CardMedia
+  CardMedia,
 } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
@@ -27,7 +27,18 @@ import {
 const Signup = () => {
   const navigate = useNavigate();
   return (
-    <Grid container justifyContent="center" alignItems="center" columnSpacing={8}  mt={4} mb={4} position="absolute" top="50%" left="50%" sx={{transform: "translate(-50%, -50%)"}}>
+    <Grid
+      container
+      justifyContent="center"
+      alignItems="center"
+      columnSpacing={8}
+      mt={4}
+      mb={4}
+      position="absolute"
+      top="50%"
+      left="50%"
+      sx={{ transform: "translate(-50%, -50%)" }}
+    >
       <Grid item>
         <CardMedia
           component="img"
