@@ -1,15 +1,20 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import React from "react";
+import { Card, CardActionArea, CardContent, CardHeader } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
-import CompleteCards from "./cards/CompleteCards";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
-const Body = () => {
-  return <CompleteCards></CompleteCards>;
+const login = () => {
+  return (
+    <Card>
+      <CardHeader></CardHeader>
+      <CardContent></CardContent>
+      <CardActionArea></CardActionArea>
+    </Card>
+  );
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default Body;
+export default login;

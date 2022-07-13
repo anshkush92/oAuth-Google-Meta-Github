@@ -26,7 +26,14 @@ import {
 const Signup = () => {
   const navigate = useNavigate();
   return (
-    <Box>
+    <Box
+      sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translateX(-50%) translateY(-50%)",
+      }}
+    >
       <Card sx={{ maxWidth: "400px", m: "auto", mt: 4, mb: 4 }}>
         <CardHeader
           title={<Typography variant="h6">Welcome new user</Typography>}

@@ -2,7 +2,7 @@
 
 // Test -------------------------- Importing the styles / other components ----------------
 import Navbar from "../components/navbar/Navbar";
-import Body from "../components/body/Body";
+import CompleteCards from "../components/body/cards/CompleteCards";
 import Footer from "../components/footer/Footer";
 
 // Test -------------------------- Structure of Props ----------------------------------
@@ -12,7 +12,7 @@ const BlogsPage = () => {
   return (
     <>
       <Navbar></Navbar>
-      <Body></Body>
+      <CompleteCards></CompleteCards>
       <Footer></Footer>
     </>
   );
