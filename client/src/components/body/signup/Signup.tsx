@@ -21,20 +21,21 @@ import {
 const Signup = () => {
   return (
     <Box>
-      <Card sx={{ maxWidth: "600px", m: "auto", mt: 4, mb: 4 }}>
+      <Card sx={{ maxWidth: "800px", m: "auto", mt: 4, mb: 4 }}>
         <CardHeader
           title={<Typography variant="h6">Welcome new user</Typography>}
           subheader="New to the Vault? Create an account"
+          sx={{textAlign: "center"}}
         ></CardHeader>
-        <Grid container spacing={0.25} justifyContent="space-evenly">
-          <Grid item xs={4}>
+        <Grid container spacing={1} justifyContent="space-evenly">
+          <Grid item xs={5}>
             <CardMedia
               component="img"
               src="https://res.cloudinary.com/dicbnntfh/image/upload/v1657720062/signup_ni5ytq.svg"
             ></CardMedia>
           </Grid>
-          <Grid item xs={1}>
-            <Divider orientation="vertical" sx={{mt: 2, mb: 2}}>OR</Divider>
+          <Grid item>
+            <Divider orientation="vertical" variant="middle"></Divider>
           </Grid>
           <Grid item xs={6}>
             <CardContent>
@@ -47,6 +48,26 @@ const Signup = () => {
                   Submit
                 </Button>
               </CardActions>
+              <Divider orientation="horizontal" sx={{ mt: 1 }}>
+                OR
+              </Divider>
+              <Grid container rowSpacing={1.5} columnSpacing={1.5} mt={1}>
+                <Grid item xs={12}>
+                  <Button variant="contained" fullWidth>
+                    Google
+                  </Button>
+                </Grid>
+                <Grid item xs={6}>
+                  <Button variant="outlined" fullWidth>
+                    Facebook
+                  </Button>
+                </Grid>
+                <Grid item xs={6}>
+                  <Button variant="outlined" fullWidth>
+                    Github
+                  </Button>
+                </Grid>
+              </Grid>
             </CardContent>
           </Grid>
         </Grid>
