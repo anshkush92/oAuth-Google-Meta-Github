@@ -40,6 +40,7 @@ const Signup = () => {
               <Box display="flex" flexDirection="column" gap={1.5}>
                 <TextField label="Username"></TextField>
                 <TextField label="Password"></TextField>
+                <TextField label="Confirm Password"></TextField>
               </Box>
               <CardActions sx={{ pl: 0, pr: 0, mt: 1 }}>
                 <Button fullWidth variant="contained" sx={{ m: 0 }}>
