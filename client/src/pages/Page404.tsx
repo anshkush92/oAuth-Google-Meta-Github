@@ -1,20 +1,14 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 
 // Test -------------------------- Importing the styles / other components ----------------
-import Navbar from "../components/navbar/Navbar";
-import Login from "../components/body/login/login";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
-const LoginPage = () => {
-  return (
-    <>
-      <Navbar></Navbar>
-      <Login></Login>
-    </>
-  );
+const Page404 = () => {
+  return <div>Page404</div>;
 };
 
+export default Page404;
+
 // Test -------------------------- Exporting the current component ------------------------
-export default LoginPage;
