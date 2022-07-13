@@ -4,7 +4,6 @@ import {
   Card,
   CardActions,
   CardHeader,
-  CardMedia,
   Typography,
   CardContent,
   TextField,
@@ -14,6 +13,7 @@ import {
 } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import { GoogleButton, GithubButton } from "../../../utilities/different-button";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
@@ -21,23 +21,14 @@ import {
 const Signup = () => {
   return (
     <Box>
-      <Card sx={{ maxWidth: "800px", m: "auto", mt: 4, mb: 4 }}>
+      <Card sx={{ maxWidth: "400px", m: "auto", mt: 4, mb: 4 }}>
         <CardHeader
           title={<Typography variant="h6">Welcome new user</Typography>}
           subheader="New to the Vault? Create an account"
-          sx={{textAlign: "center"}}
+          sx={{ textAlign: "center" }}
         ></CardHeader>
         <Grid container spacing={1} justifyContent="space-evenly">
-          <Grid item xs={5}>
-            <CardMedia
-              component="img"
-              src="https://res.cloudinary.com/dicbnntfh/image/upload/v1657720062/signup_ni5ytq.svg"
-            ></CardMedia>
-          </Grid>
-          <Grid item>
-            <Divider orientation="vertical" variant="middle"></Divider>
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <CardContent>
               <Box display="flex" flexDirection="column" gap={1}>
                 <TextField label="Username"></TextField>
@@ -51,11 +42,11 @@ const Signup = () => {
               <Divider orientation="horizontal" sx={{ mt: 1 }}>
                 OR
               </Divider>
-              <Grid container rowSpacing={1.5} columnSpacing={1.5} mt={1}>
+              <Grid container rowSpacing={1.5} columnSpacing={1.5} mt={0.75}>
                 <Grid item xs={12}>
-                  <Button variant="contained" fullWidth>
+                  <GoogleButton variant="contained" fullWidth>
                     Google
-                  </Button>
+                  </GoogleButton>
                 </Grid>
                 <Grid item xs={6}>
                   <Button variant="outlined" fullWidth>
@@ -63,9 +54,13 @@ const Signup = () => {
                   </Button>
                 </Grid>
                 <Grid item xs={6}>
-                  <Button variant="outlined" fullWidth>
+                  <GithubButton
+                    variant="outlined"
+                    fullWidth
+                    sx={{ "&:hover": { backgroundColor: "grey" } }}
+                  >
                     Github
-                  </Button>
+                  </GithubButton>
                 </Grid>
               </Grid>
             </CardContent>
