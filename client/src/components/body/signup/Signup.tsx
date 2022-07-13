@@ -11,6 +11,7 @@ import {
   Grid,
   Divider,
   CardActionArea,
+  CardMedia
 } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
@@ -26,15 +27,15 @@ import {
 const Signup = () => {
   const navigate = useNavigate();
   return (
-    <Grid container justifyContent="center" columnSpacing={4} mt={4} mb={4}>
-      <Grid item xs={4}>
-        <Box
+    <Grid container justifyContent="center" alignItems="center" columnSpacing={8}  mt={4} mb={4} position="absolute" top="50%" left="50%" sx={{transform: "translate(-50%, -50%)"}}>
+      <Grid item>
+        <CardMedia
           component="img"
           src="https://res.cloudinary.com/dicbnntfh/image/upload/v1657720062/signup_ni5ytq.svg"
           alt="Test"
-        ></Box>
+        ></CardMedia>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item>
         <Card sx={{ maxWidth: "400px", m: "auto" }}>
           <CardHeader
             title={<Typography variant="h6">Welcome new user</Typography>}
