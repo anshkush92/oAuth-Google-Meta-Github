@@ -2,7 +2,6 @@ import { Button, styled } from "@mui/material";
 
 export const GoogleButton = styled(Button)({
   backgroundColor: "#1976d2",
-  border: "solid 1px #1976d2",
   color: "white",
   borderColor: "#000",
 

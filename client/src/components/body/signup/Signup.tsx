@@ -10,27 +10,34 @@ import {
   Button,
   Grid,
   Divider,
+  CardActionArea,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
 // Test -------------------------- Importing the styles / other components ----------------
-import { GoogleButton, GithubButton } from "../../../utilities/different-button";
+import {
+  GoogleButton,
+  GithubButton,
+} from "../../../utilities/different-button";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
 const Signup = () => {
+  const navigate = useNavigate();
   return (
     <Box>
       <Card sx={{ maxWidth: "400px", m: "auto", mt: 4, mb: 4 }}>
         <CardHeader
           title={<Typography variant="h6">Welcome new user</Typography>}
-          subheader="New to the Vault? Create an account"
-          sx={{ textAlign: "center" }}
+          subheader="Create a new account to explore more"
+          sx={{ textAlign: "left", pb: 0 }}
         ></CardHeader>
+
         <Grid container spacing={1} justifyContent="space-evenly">
           <Grid item xs={12}>
             <CardContent>
-              <Box display="flex" flexDirection="column" gap={1}>
+              <Box display="flex" flexDirection="column" gap={1.5}>
                 <TextField label="Username"></TextField>
                 <TextField label="Password"></TextField>
               </Box>
@@ -39,6 +46,18 @@ const Signup = () => {
                   Submit
                 </Button>
               </CardActions>
+
+              <CardActionArea
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                <CardHeader
+                  subheader="Already have an Account ? Login"
+                  sx={{ pt: 0.5, pb: 0.5, textAlign: "center" }}
+                ></CardHeader>
+              </CardActionArea>
+
               <Divider orientation="horizontal" sx={{ mt: 1 }}>
                 OR
               </Divider>
