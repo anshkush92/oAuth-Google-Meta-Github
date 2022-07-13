@@ -1,15 +1,20 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import React from "react";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import Signup from "../components/body/signup/Signup";
+import Navbar from "../components/navbar/Navbar";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
-
-const Blogs = () => {
-  return <div>Blogs</div>;
+const SignupPage = () => {
+  return (
+    <>
+      <Navbar></Navbar>
+      <Signup></Signup>
+    </>
+  );
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default Blogs;
+export default SignupPage;

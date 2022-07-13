@@ -1,5 +1,6 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -53,13 +54,18 @@ const Navbar = () => {
           }}
         >
           <Box>
-            <Button
-              variant="contained"
-              sx={{ color: "white", backgroundColor: "black" }}
-              startIcon={<VpnKeyIcon sx={{ color: "white" }}></VpnKeyIcon>}
-            >
-              Vault
-            </Button>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                sx={{
+                  color: "white",
+                  backgroundColor: "black",
+                }}
+                startIcon={<VpnKeyIcon sx={{ color: "white" }}></VpnKeyIcon>}
+              >
+                Vault
+              </Button>
+            </NavLink>
           </Box>
 
           <Box flex={0.5}>
@@ -86,13 +92,20 @@ const Navbar = () => {
 
           <Box>
             <Tooltip title="See all the blogs" arrow>
-              <IconButton>
-                <FeedIcon sx={{ color: "white" }}></FeedIcon>
-              </IconButton>
+              <NavLink to="/blogs" style={{ textDecoration: "none" }}>
+                <IconButton>
+                  <FeedIcon sx={{ color: "white" }}></FeedIcon>
+                </IconButton>
+              </NavLink>
             </Tooltip>
 
-            <Button sx={{ color: "white" }}>Sign Up</Button>
-            <Button sx={{ color: "white" }}>Login</Button>
+            <NavLink to="/signup" style={{ textDecoration: "none" }}>
+              <Button sx={{ color: "white" }}>Signup</Button>
+            </NavLink>
+
+            <NavLink to="/login" style={{ textDecoration: "none" }}>
+              <Button sx={{ color: "white" }}>Login</Button>
+            </NavLink>
 
             <Tooltip title="Click to get different menu items">
               <>

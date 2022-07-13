@@ -8,7 +8,7 @@ import Footer from "../components/footer/Footer";
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
-const Home = () => {
+const BlogsPage = () => {
   return (
     <>
       <Navbar></Navbar>
@@ -19,4 +19,4 @@ const Home = () => {
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default Home;
+export default BlogsPage;
