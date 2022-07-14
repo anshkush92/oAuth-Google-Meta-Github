@@ -12,6 +12,7 @@ import {
   Divider,
   CardActionArea,
   CardMedia,
+  Stack,
 } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
@@ -82,25 +83,36 @@ const Signup = () => {
                 <Divider orientation="horizontal" sx={{ mt: 1 }}>
                   OR
                 </Divider>
-                <Grid container rowSpacing={1.5} columnSpacing={1.5} mt={0.75}>
-                  <Grid item xs={12}>
-                    <GoogleButton variant="contained" fullWidth>
+                <Grid
+                  container
+                  justifyContent="center"
+                  columnSpacing={1.5}
+                  mt={0.75}
+                  sx={{width: "100%", ml: "auto", mr: "auto"}}
+                >
+                  <Grid item>
+                    <GoogleButton variant="contained" sx={{ height: "100%" }}>
                       Google
                     </GoogleButton>
                   </Grid>
-                  <Grid item xs={6}>
-                    <Button variant="outlined" fullWidth>
-                      Facebook
-                    </Button>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <GithubButton
-                      variant="outlined"
-                      fullWidth
-                      sx={{ "&:hover": { backgroundColor: "grey" } }}
-                    >
-                      Github
-                    </GithubButton>
+
+                  <Grid item>
+                    <Stack component="span" spacing={1}>
+                      <Grid item>
+                        <Button variant="outlined" fullWidth>
+                          Facebook
+                        </Button>
+                      </Grid>
+                      <Grid item>
+                        <GithubButton
+                          variant="outlined"
+                          fullWidth
+                          sx={{ "&:hover": { backgroundColor: "grey" } }}
+                        >
+                          Github
+                        </GithubButton>
+                      </Grid>
+                    </Stack>
                   </Grid>
                 </Grid>
               </CardContent>
