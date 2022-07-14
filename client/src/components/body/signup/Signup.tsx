@@ -88,15 +88,18 @@ const Signup = () => {
                   justifyContent="center"
                   columnSpacing={1.5}
                   mt={0.75}
-                  sx={{width: "100%", ml: "auto", mr: "auto"}}
                 >
-                  <Grid item>
-                    <GoogleButton variant="contained" sx={{ height: "100%" }}>
+                  <Grid item xs={6}>
+                    <GoogleButton
+                      fullWidth
+                      variant="contained"
+                      sx={{ height: "100%" }}
+                    >
                       Google
                     </GoogleButton>
                   </Grid>
 
-                  <Grid item>
+                  <Grid item xs={6}>
                     <Stack component="span" spacing={1}>
                       <Grid item>
                         <Button variant="outlined" fullWidth>
