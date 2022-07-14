@@ -1,6 +1,7 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 
 // Test -------------------------- Importing the styles / other components ----------------
+import Home from "../components/body/home/Home";
 import Navbar from "../components/navbar/Navbar";
 // Test -------------------------- Structure of Props ----------------------------------
 
@@ -9,7 +10,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar></Navbar>
-      This is Home Page
+      <Home></Home>
     </>
   );
 };
