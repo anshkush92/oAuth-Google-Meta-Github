@@ -12,4 +12,8 @@
 - [Convert Date into DDMMYY](https://stackoverflow.com/questions/42862729/convert-date-object-in-dd-mm-yyyy-hhmmss-format)
 - [React Router DOM v6](https://reactrouter.com/docs/en/v6/getting-started/tutorial)
 - [Navigation on Click a Button (Programatic Navigation)](https://stackoverflow.com/questions/50644976/react-button-onclick-redirect-page)
+
+- [Express JS](https://expressjs.com/en/starter/hello-world.html)
+- [Server already in Use](https://stackoverflow.com/questions/4075287/node-express-eaddrinuse-address-already-in-use-kill-server)
 - [Passport Js](https://www.passportjs.org/)
+- [How to Use Passport Js in Express](https://www.youtube.com/watch?v=F-sFp_AvHc8)
