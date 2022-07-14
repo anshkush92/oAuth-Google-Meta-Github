@@ -54,7 +54,7 @@ const BlogCard = ({ width, height, removeImage }: BlogCardProps) => {
           alt="Beautiful Blue Night"
         ></CardMedia>
       )}
-      <CardContent>
+      <CardContent sx={{ pt: 1 }}>
         <Typography variant="body2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
           saepe et sint quasi iure, harum ad expedita vero aliquam tempore.
