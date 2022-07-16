@@ -1,6 +1,7 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 require("dotenv").config();
 const express = require("express");
+const authRoutes = require("./routes/googleAuth");
 const db = require('./config/db');
 const cors = require("cors");
 
@@ -19,6 +20,9 @@ const PORT = 8000 || process.env.PORT;
 // Converting the JSON data received by client into the JS object
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Using the auth Routes 
+app.use("/auth", authRoutes);
 
 // Adding the session, automatically logs out if the session has expired
 app.use(cookieSession({
