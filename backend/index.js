@@ -41,7 +41,7 @@ app.use(passport.session());
 
 // Using cors, so that we can communicate with our client which is on other server
 app.use(cors({
-    origin: "http://localhost:3000/",
+    origin: "http://localhost:3000",
     methods: "GET, POST, PUT, DELETE",
     credentials: true,
 }))
