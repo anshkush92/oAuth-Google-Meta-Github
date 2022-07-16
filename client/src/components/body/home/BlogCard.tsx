@@ -27,7 +27,6 @@ const BlogCard = ({ width, height, removeImage }: BlogCardProps) => {
   return (
     <Card sx={{ width: { width }, height: { height } }}>
       <CardHeader
-        alignItems="center"
         avatar={
           <Avatar
             src="https://mui.com/static/images/avatar/1.jpg"
