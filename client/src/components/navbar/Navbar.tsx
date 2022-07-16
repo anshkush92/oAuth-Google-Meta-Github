@@ -146,7 +146,7 @@ const Navbar = () => {
 
           <Box>
             <Tooltip title="See all the blogs" arrow>
-              <NavLink to="/blogs" style={{ textDecoration: "none" }}>
+              <NavLink to={isLoggedIn ? "/blogs" : "/login"} style={{ textDecoration: "none" }}>
                 <IconButton>
                   <FeedIcon sx={{ color: "white" }}></FeedIcon>
                 </IconButton>
