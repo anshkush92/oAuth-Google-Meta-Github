@@ -19,3 +19,4 @@
 - [How to Use Passport Js in Express](https://www.youtube.com/watch?v=F-sFp_AvHc8)
 - [Passport JS Google Strategy Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jdm7QX143aMLAqyM-jTZ2x)
 - [Passport JS requires verify callback error](https://stackoverflow.com/questions/53357583/throw-new-typeerroroauth2strategy-requires-a-verify-callback)
+- [Unhandled Sessions error Passport Js](https://stackoverflow.com/questions/72375564/typeerror-req-session-regenerate-is-not-a-function-using-passport)
