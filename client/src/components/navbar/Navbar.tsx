@@ -28,7 +28,12 @@ import { VaultButton } from "../../utilities/vault-button";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { loginUser, logoutUser } from "../../features/userStatus/userStatus";
+import { splitString } from "../../utilities/splitting-strings";
+import {
+  loginUser,
+  logoutUser,
+  setUserData,
+} from "../../features/userStatus/userStatus";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
@@ -38,6 +43,11 @@ const Navbar = () => {
   const dispatch = useAppDispatch();
 
   const isLoggedIn = useAppSelector((state) => state.userStatus.isLoggedIn);
+  const googleUserData = useAppSelector(
+    (state) => state.userStatus.googleUserData
+  );
+
+  console.log(googleUserData);
 
   const open = Boolean(anchorElement);
 
@@ -72,8 +82,10 @@ const Navbar = () => {
 
       if (response.ok) {
         const data = await response.json();
-        dispatch(loginUser());
         console.log(data);
+        dispatch(loginUser());
+        const { avatar, displayName, googleId } = data.user;
+        dispatch(setUserData({ avatar, displayName, googleId }));
       } else {
         console.log("Authentication failed");
       }
@@ -157,11 +169,11 @@ const Navbar = () => {
                 <>
                   <IconButton onClick={avatarMenuOpenClick}>
                     <Avatar
-                      src="https://mui.com/static/images/avatar/2.jpg"
-                      alt="Ansh Singh"
+                      src={googleUserData.avatar}
+                      alt={googleUserData.displayName}
                     ></Avatar>
                   </IconButton>
-                  Ansh
+                  {splitString(googleUserData.displayName)[0]}
                   <Menu
                     open={open}
                     anchorEl={anchorElement}
