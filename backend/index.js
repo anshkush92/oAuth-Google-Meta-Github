@@ -38,7 +38,6 @@ app.use(cookieSession({
 
 // Initializing the passport.js
 app.use(passport.initialize());
-
 // Using the session that we have created
 app.use(passport.session());
 
