@@ -29,7 +29,6 @@ import { VaultButton } from "../../utilities/vault-button";
 // Test -------------------------- Importing the styles / other components ----------------
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { loginUser, logoutUser } from "../../features/userStatus/userStatus";
-import { Cookie } from "@mui/icons-material";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
