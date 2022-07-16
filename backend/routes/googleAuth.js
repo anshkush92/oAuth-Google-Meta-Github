@@ -30,6 +30,7 @@ router.get("/google/callback", passport.authenticate("google", { failureRedirect
 
 // Path ----> /login/success ----> We will use the useEffect to send request to this path, and get the user data
 router.get("/login/success", (req, res) => {
+    console.log(req.user);
     if (req.user) {
         res.status(200).json({
             success: true,
@@ -42,6 +43,7 @@ router.get("/login/success", (req, res) => {
 
 // Path ----> /login/failed
 router.get("/login/failed", (req, res) => {
+    console.log("Authentication failed from googleAuth.js");
     res.status(401).json({
         success: false,
         message: "Login Failed Please try again",
