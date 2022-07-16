@@ -27,7 +27,6 @@ router.get("/google", passport.authenticate("google", {
 // This time we have the code, and again using passport.authenticate("google") will fire the callback function in the passportSetup which is responsible for exchanging the information for the code
 router.get("/google/callback", passport.authenticate("google", { failureRedirect: "http://localhost:3000/login" }), (req, res) => {
     // Successfull Redirection
-    res.json(req.user)
     res.redirect("http://localhost:3000/");
 });
 
