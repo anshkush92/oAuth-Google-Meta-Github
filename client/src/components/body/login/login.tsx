@@ -20,13 +20,16 @@ import {
   GoogleButton,
   GithubButton,
 } from "../../../utilities/different-button";
-import { googleAuth } from "../../../utilities/authSocials";
-
 // Test -------------------------- Structure of Props ----------------------------------
 
 // Test -------------------------- The current component ----------------------------------
 const Login = () => {
   let navigate = useNavigate();
+
+  const googleAuth = () => {
+    // Open the google Auth window, where google accounts are there to authenticate
+    window.open("http://localhost:8000/auth/google", "_self");
+  };
 
   return (
     <Grid

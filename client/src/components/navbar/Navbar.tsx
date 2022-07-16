@@ -27,7 +27,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import { VaultButton } from "../../utilities/vault-button";
 
 // Test -------------------------- Importing the styles / other components ----------------
-import { socialLogout } from "../../utilities/authSocials";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
@@ -46,7 +45,8 @@ const Navbar = () => {
 
   const logoutHandler = () => {
     setAnchorElement(null);
-    socialLogout();
+    // Opens a new window / current in which we moved to the logged out screen
+    window.open("http://localhost:8000/auth/logout", "_self");
   };
 
   return (
