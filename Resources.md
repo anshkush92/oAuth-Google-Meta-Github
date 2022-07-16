@@ -22,3 +22,4 @@
 - [Unhandled Sessions error Passport Js](https://stackoverflow.com/questions/72375564/typeerror-req-session-regenerate-is-not-a-function-using-passport)
 - [req.logout() needs a callback function](https://stackoverflow.com/questions/72336177/error-reqlogout-requires-a-callback-function)
 - [req.user getting undefined](https://stackoverflow.com/questions/16434893/node-express-passport-req-user-undefined)
+- [403 Forbidden Google Image](https://stackoverflow.com/questions/40570117/http403-forbidden-error-when-trying-to-load-img-src-with-google-profile-pic)

@@ -47,8 +47,6 @@ const Navbar = () => {
     (state) => state.userStatus.googleUserData
   );
 
-  console.log(googleUserData);
-
   const open = Boolean(anchorElement);
 
   const avatarMenuOpenClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -77,6 +75,7 @@ const Navbar = () => {
           "Content-Type": "application/json",
           "Access-Control-Allow-Credentials": "true",
           "Access-Control-Allow-Origin": "http://localhost:3000",
+          "Referrer-Policy": "no-referrer",
         },
       });
 
@@ -169,9 +168,9 @@ const Navbar = () => {
                 <>
                   <IconButton onClick={avatarMenuOpenClick}>
                     <Avatar
-                      src={googleUserData.avatar}
+                      src="https://lh3.googleusercontent.com/a-/AFdZucr0poegt0nf1Dhnni7bZWzwSNTvw-HuwUgbF-RgfA=s96-c"
                       alt={googleUserData.displayName}
-                    ></Avatar>
+                    />
                   </IconButton>
                   {splitString(googleUserData.displayName)[0]}
                   <Menu
