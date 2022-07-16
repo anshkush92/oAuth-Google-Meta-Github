@@ -8,7 +8,7 @@ import Page404 from "./pages/Page404";
 
 const App = () => {
   const fakeData = useFakeData();
-  console.log(fakeData);
+  // console.log(fakeData);
 
   return (
     <div>
