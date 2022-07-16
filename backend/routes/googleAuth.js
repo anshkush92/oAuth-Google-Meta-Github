@@ -26,11 +26,14 @@ router.get("/google", passport.authenticate("google", {
 
 // Path ----> auth/google/callback -----> Now we have the code, given by google which we will use to take the information from google account 
 // This time we have the code, and again using passport.authenticate("google") will fire the callback function in the passportSetup which is responsible for exchanging the information for the code
-router.get("/google/callback", passport.authenticate("google"), (req, res) => { res.status(200).json({ user: req.user }) });
+router.get("/google/callback", passport.authenticate("google"), (req, res) => {
+    console.log(`Message from /google/callback ${req.user}`);
+    res.redirect("http://localhost:8000/auth/login/success");
+});
 
 // Path ----> /login/success ----> We will use the useEffect to send request to this path, and get the user data
 router.get("/login/success", (req, res) => {
-    console.log(`Message from /auth/login/success ---> ${req}`);
+    console.log(`Message from /auth/login/success ---> ${req.user}`);
     if (req.user) {
         res.status(200).json({
             success: true,
@@ -39,6 +42,7 @@ router.get("/login/success", (req, res) => {
             message: "Login Successful",
         });
     }
+    res.send(`Message from /auth/login/success ---> ${req.user}`);
 });
 
 // Path ----> /login/failed
