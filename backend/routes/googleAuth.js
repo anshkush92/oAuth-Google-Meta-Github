@@ -25,10 +25,10 @@ router.get("/google", passport.authenticate("google", {
 
 // Path ----> auth/google/callback -----> Now we have the code, given by google which we will use to take the information from google account 
 // This time we have the code, and again using passport.authenticate("google") will fire the callback function in the passportSetup which is responsible for exchanging the information for the code
-router.get("/google/callback", passport.authenticate("google", { failureRedirect: "http://localhost:3000/login" }, (req, res) => {
+router.get("/google/callback", passport.authenticate("google", { failureRedirect: "http://localhost:3000/login" }), (req, res) => {
     // Successfull Redirection
     res.redirect("http://localhost:3000/");
-}))
+});
 
 // Test -------------------------- Exporting the server side code ------------------------
 module.exports = router;
