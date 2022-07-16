@@ -5,6 +5,9 @@ const authRoutes = require("./routes/googleAuth");
 const db = require('./config/db');
 const cors = require("cors");
 
+// Passport Setup 
+const passportSetup = require("./config/passportSetup");
+
 // Session is stored on the server and the cookie is stored on the browser
 const cookieSession = require("cookie-session");
 
