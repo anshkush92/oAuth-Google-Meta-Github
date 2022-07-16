@@ -13,7 +13,8 @@ router.get("/login", (req, res, next) => {
 // Path -----> /auth/logout
 router.get("/logout", (req, res) => {
     // Handle the logout process with passport js 
-    res.send("Logout")
+    req.logout();
+    res.redirect("http://localhost:3000/signup");
 })
 
 // Path -----> /auth/google ------> When we are choosing an account screen using the passport.authenticate("google")
