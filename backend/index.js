@@ -9,7 +9,7 @@ const cors = require("cors");
 const passportSetup = require("./config/passportSetup");
 
 // Session is stored on the server and the cookie is stored on the browser
-const cookieSession = require("cookie-session");
+const session = require('express-session');
 
 // Passport JS is an middleware 
 const passport = require("passport");
@@ -25,15 +25,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Using the auth Routes 
-app.use("/auth", authRoutes);
 
 // Adding the session, automatically logs out if the session has expired
-app.use(cookieSession({
-    name: "session",
-    // The key which will be used to encrypt the cookie that we are gonna set
-    keys: [process.env.SECRET],
-    // The time for which the cookie will remain in the browser storage
-    maxAge: 24 * 60 * 60 * 1000,
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 24 * 60 * 60 * 1000, secure: true, httpOnly: true }
 }));
 
 // Initializing the passport.js
@@ -49,6 +47,8 @@ app.use(cors({
 }))
 
 // Test -------------------------- The Server Side Code ----------------------------------
+app.use("/auth", authRoutes);
+
 app.get("/", (req, res) => { res.send("Hello World") });
 
 app.listen(PORT, () => {
