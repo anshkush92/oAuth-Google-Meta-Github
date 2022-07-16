@@ -20,6 +20,7 @@ import {
   GoogleButton,
   GithubButton,
 } from "../../../utilities/different-button";
+import { googleAuth } from "../../../utilities/authSocials";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
@@ -67,7 +68,11 @@ const Login = () => {
             </Divider>
             <Grid container rowSpacing={1.5} columnSpacing={1.5} mt={0.75}>
               <Grid item xs={12}>
-                <GoogleButton variant="contained" fullWidth>
+                <GoogleButton
+                  variant="contained"
+                  fullWidth
+                  onClick={googleAuth}
+                >
                   Google
                 </GoogleButton>
               </Grid>

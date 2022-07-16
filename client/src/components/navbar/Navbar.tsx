@@ -27,6 +27,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { VaultButton } from "../../utilities/vault-button";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import { socialLogout } from "../../utilities/authSocials";
 
 // Test -------------------------- Structure of Props ----------------------------------
 
@@ -41,6 +42,11 @@ const Navbar = () => {
 
   const avatarMenuCloseClick = () => {
     setAnchorElement(null);
+  };
+
+  const logoutHandler = () => {
+    setAnchorElement(null);
+    socialLogout();
   };
 
   return (
@@ -133,7 +139,7 @@ const Navbar = () => {
                     <ListItemText>Settings</ListItemText>
                   </MenuItem>
 
-                  <MenuItem onClick={avatarMenuCloseClick}>
+                  <MenuItem onClick={logoutHandler}>
                     <ListItemIcon>
                       <LogoutIcon></LogoutIcon>
                     </ListItemIcon>
