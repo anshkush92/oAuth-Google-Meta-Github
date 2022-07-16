@@ -1,5 +1,6 @@
 require("dotenv").config();
 const passport = require("passport");
+const GoogleUser = require("../models/googleModel");
 const googleStrategy = require("passport-google-oauth20").Strategy;
 
 passport.use(new googleStrategy({
@@ -9,9 +10,10 @@ passport.use(new googleStrategy({
     // callbackURL ----> Redirect the user after the user has clicked allow on the /auth/google
     callbackURL: "http://localhost:8000/auth/google/callback"
 
-}, (accessToken, refreshToken, profile, done) => {
+}, async (accessToken, refreshToken, profile, done) => {
     // Function which gets fired up when we are redirected to /auth/google/callback
     // This function is used to exchange the code for the profile information 
     console.log("Passport callback function fired");
-    console.log(profile);
+    const newGoogleUser = await GoogleUser.create({ googleId: profile.id, displayName: profile.displayName, avatar: profile.photos[0].value });
+    console.log(`New Google User is ---> ${newGoogleUser}`);
 }))

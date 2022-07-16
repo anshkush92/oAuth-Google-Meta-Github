@@ -12,7 +12,7 @@ router.get("/login", (req, res, next) => {
 
 // Path -----> /auth/logout
 router.get("/logout", (req, res) => {
-    // Handle the logout process with passprot js 
+    // Handle the logout process with passport js 
     res.send("Logout")
 })
 

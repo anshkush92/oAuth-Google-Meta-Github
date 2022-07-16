@@ -3,15 +3,15 @@ const Schema = mongoose.Schema;
 
 const googleUser = new Schema({
     googleId: {
-        type: string
+        type: String
     },
 
     displayName: {
-        type: string,
+        type: String,
     },
 
     avatar: {
-        type: string,
+        type: String,
     },
 });
 
