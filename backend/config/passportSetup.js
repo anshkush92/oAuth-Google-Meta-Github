@@ -20,7 +20,13 @@ passport.serializeUser((user, done) => {
 
 // Test --------------------------- Deserializing -------------------------------------------------
 passport.deserializeUser(async (id, done) => {
-    const findUser = await GoogleUser.findById(id);
+    let findUser = await GoogleUser.findById(id);
+
+    if (findUser === null) {
+        console.log(`User not found in Google users database, so searching in Github Users database`);
+        findUser = await GithubUser.findById(id);
+    }
+
     console.log(`User found after de-serializing the cookie --> ${findUser} passportSetup.js`);
     done(null, findUser);
 });
@@ -57,3 +63,32 @@ passport.use(new googleStrategy({
 }))
 
 // Test ----------------------------------- Github oAuth --------------------------------------------
+// Telling the passport JS that we are going to the use the oAuth for the Github
+passport.use(new githubStrategy({
+    // Options for the github strategy
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    // callbackURL ----> Redirect the user after the user has clicked allow on the /auth/github
+    callbackURL: "http://localhost:8000/auth/github/callback"
+
+}, async (accessToken, refreshToken, profile, done) => {
+    // Function which gets fired up when we are redirected to /auth/github/callback 
+    console.log("Passport callback function fired ---> passportSetup.js");
+
+    // SO when this is fired, first we will look for that id in the database and if not ever logged in then create a new user
+    const oldGithubUser = await GithubUser.findOne({ githubId: profile.id });
+
+    // Checking for User, so that we don't end up adding duplicate users
+    if (oldGithubUser) {
+        // The user has already used the Github to sign in 
+        console.log(`User already exists in the database ---> passportSetup.js ----> ${oldGithubUser}`);
+        // Passing the oldGithubeUser data in MongoDb to the Serialize user, which will create a encrypted cookie with this info
+        done(null, oldGithubUser);
+    } else {
+        // Adding the new Github User
+        const newGithubUser = await GithubUser.create({ githubId: profile.id, displayName: profile.displayName, avatar: profile.photos[0].value });
+        console.log(`New Github User is ---> passportSetup.js ---> ${newGithubUser}`);
+        // Passing the newGithubUser data in MongoDb to the Serialize user, which will create a encrypted cookie with this info
+        done(null, newGithubUser);
+    }
+}))
