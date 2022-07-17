@@ -2,13 +2,16 @@
 require("dotenv").config();
 const express = require("express");
 const authRoutes = require("./routes/googleAuth");
+
+// Making sure that the server is able to connect with the database
 const db = require('./config/db');
+// For making request to different URLs 
 const cors = require("cors");
 
-// Passport Setup 
+// Passport Setup ----> This is the file responsible for oAuth with Google
 const passportSetup = require("./config/passportSetup");
 
-// Session is stored on the server and the cookie is stored on the browser
+// Session is stored on the server and that session is encrypted on the cookie which is stored on the browser
 const session = require('express-session');
 
 // Passport JS is an middleware 
@@ -32,7 +35,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     // This sessions get expired after 1 min, session encrypted in cookie, cookie expires in 1 min
-    cookie: { maxAge: 24 * 60 * 60 * 1000 }
+    // This removes the cookie from the browser storeage after 30s
+    cookie: { maxAge: 0.5 * 60 * 1000 }
 }));
 
 // Initializing the passport.js
@@ -44,12 +48,15 @@ app.use(passport.session());
 app.use(cors({
     origin: "http://localhost:3000",
     methods: "GET, POST, PUT, DELETE",
+    // This is why we are able to login using the oAuth in Google
     credentials: true,
 }))
 
 // Test -------------------------- The Server Side Code ----------------------------------
+// Using the googleAuth Routes for oAuth authentication related to Google using passport js
 app.use("/auth", authRoutes);
 
+// Checking whether server is running or not 
 app.get("/", (req, res) => { res.send("Hello World") });
 
 app.listen(PORT, () => {
@@ -58,5 +65,3 @@ app.listen(PORT, () => {
 
 // Sending the error middleware at last, so that we can get the error  -----> Best Practice
 app.use((err, req, res, next) => { console.log(err) });
-
-// Test -------------------------- Exporting the server side code ------------------------

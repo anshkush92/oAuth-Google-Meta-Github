@@ -12,26 +12,28 @@ router.get("/login", (req, res, next) => {
 
 // Path -----> /auth/logout
 router.get("/logout", (req, res) => {
-    // Handle the logout process with passport js 
+    // Handle the logout process with passport js (after update needs callback function)
     req.logout((error) => { console.log(error ? error : "Logged out succesfully") });
     res.redirect("http://localhost:3000/login");
 })
 
-// Path -----> /auth/google ------> When we are choosing an account screen using the passport.authenticate("google")
-// Passport js takes control and sends us to the consent screen
+// Path -----> /auth/google ------> 
+// Passport JS takes us to the google accounts screen, where we can allow or deny to login from certain account
 router.get("/google", passport.authenticate("google", {
     // Basically the scope tells what information we wanna retrieve from the google account
     scope: ['profile']
 }))
 
-// Path ----> auth/google/callback -----> Now we have the code, given by google which we will use to take the information from google account 
-// This time we have the code, and again using passport.authenticate("google") will fire the callback function in the passportSetup which is responsible for exchanging the information for the code
+// Path ----> auth/google/callback -----> 
+// Now we get the code after clicking allow on google accounts
+// Then callback function in google Strategy is fired up as we are using that middleware which extracts info from profile
 router.get("/google/callback", passport.authenticate("google"), (req, res) => {
     console.log(`Message from /google/callback ${req.user}`);
     res.redirect("http://localhost:3000/");
 });
 
-// Path ----> /login/success ----> We will use the useEffect to send request to this path, and get the user data
+// Path ----> /login/success ----> 
+// We will use the useEffect to send request to this path, and get the user data
 router.get("/login/success", (req, res) => {
     console.log(`Message from /auth/login/success ---> ${req.user}`);
     if (req.user) {

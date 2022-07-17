@@ -1,25 +1,27 @@
 require("dotenv").config();
+// Using passport to use the passport middleware
 const passport = require("passport");
+// Using the Schema defined for the Google user
 const GoogleUser = require("../models/googleModel");
+// Using the oAuth2.0 which authenticates the users with their google account
 const googleStrategy = require("passport-google-oauth20").Strategy;
 
-// This functions takes the user information from the database, and encrypt cookie with the information
+// Read the Passport Js workflow to understand better about the Passport Js
+// Test --------------------------- Seriazliing -------------------------------------------------
 passport.serializeUser((user, done) => {
     console.log(`Serialized User by encrypting cookie with the ${user.id} from passportSetup.js`);
-    // Using the mongoDB id created to encrypt the cookie to tell that the user is authenticated
-    // done () ---> similar to what next() does
     done(null, user.id);
 });
 
-// This functions takes the cookie and deserialize and then looks up for the info in the database
+// Test --------------------------- Deserializing -------------------------------------------------
 passport.deserializeUser(async (id, done) => {
-    // Using the mongoDB id created to encrypt the cookie to tell that the user is authenticated
     const findUser = await GoogleUser.findById(id);
     console.log(`User found after de-serializing the cookie --> ${findUser} passportSetup.js`);
     done(null, findUser);
 });
 
-
+// Test ----------------------------------- Google oAuth --------------------------------------------
+// Telling the passport JS that we are going to the use the oAuth for the Google
 passport.use(new googleStrategy({
     // Options for the google strategy
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -28,8 +30,7 @@ passport.use(new googleStrategy({
     callbackURL: "http://localhost:8000/auth/google/callback"
 
 }, async (accessToken, refreshToken, profile, done) => {
-    // Function which gets fired up when we are redirected to /auth/google/callback
-    // This function is used to exchange the code for the profile information 
+    // Function which gets fired up when we are redirected to /auth/google/callback 
     console.log("Passport callback function fired ---> passportSetup.js");
 
     // SO when this is fired, first we will look for that id in the database and if not ever logged in then create a new user
