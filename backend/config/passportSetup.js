@@ -110,6 +110,7 @@ passport.use(new facebookStrategy({
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     // callbackURL ----> Redirect the user after the user has clicked allow on the /auth/facebook
     callbackURL: "http://localhost:8000/auth/facebook/callback",
+    profileFields: ['id', 'displayName', 'photos', 'email'],
 }, async (accessToken, refreshToken, profile, done) => {
     // Function which gets fired up when we are redirected to /auth/facebook/callback 
     console.log("Passport callback function fired ---> Facebook", profile);
@@ -125,7 +126,7 @@ passport.use(new facebookStrategy({
         done(null, oldFacebookUser);
     } else {
         // Adding the new Facebook User
-        const newFacebookUser = await FacebookUser.create({ facebookId: profile.id, displayName: profile.displayName, avatar: profile.photos[0].value || undefined });
+        const newFacebookUser = await FacebookUser.create({ facebookId: profile.id, displayName: profile.displayName, avatar: profile.photos[0].value || profile.displayName });
         console.log(`New Facebook User is ---> passportSetup.js ---> ${newFacebookUser}`);
         // Passing the newFacebookUser data in MongoDb to the Serialize user, which will create a encrypted cookie with this info
         done(null, newFacebookUser);

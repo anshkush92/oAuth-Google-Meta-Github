@@ -22,6 +22,7 @@ router.get("/logout", (req, res) => {
 router.get("/facebook", passport.authenticate("facebook", {
     // Basically the scope tells what information we wanna retrieve from the facebook account
     scope: ["public_profile", "email"],
+
 }), () => { console.log("/auth/facebook") });
 
 // Path ----> auth/facebook/callback -----> 
