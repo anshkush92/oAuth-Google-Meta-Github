@@ -59,7 +59,7 @@ passport.use(new googleStrategy({
     // Checking for User, so that we don't end up adding duplicate users
     if (oldGoogleUser) {
         // The user has already used the Google to sign in 
-        console.log(`User already exists in the database ---> passportSetup.js ----> ${oldGoogleUser}`);
+        console.log(`User already exists in the database ---> Google ----> ${oldGoogleUser}`);
         // Passing the oldGoogleUser data in MongoDb to the Serialize user, which will create a encrypted cookie with this info
         done(null, oldGoogleUser);
     } else {
@@ -82,7 +82,7 @@ passport.use(new githubStrategy({
 
 }, async (accessToken, refreshToken, profile, done) => {
     // Function which gets fired up when we are redirected to /auth/github/callback 
-    console.log("Passport callback function fired ---> passportSetup.js");
+    console.log("Passport callback function fired ---> Github");
 
     // SO when this is fired, first we will look for that id in the database and if not ever logged in then create a new user
     const oldGithubUser = await GithubUser.findOne({ githubId: profile.id });
@@ -109,11 +109,10 @@ passport.use(new facebookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     // callbackURL ----> Redirect the user after the user has clicked allow on the /auth/facebook
-    callbackURL: "http://localhost:8000/auth/facebook/callback"
-
+    callbackURL: "http://localhost:8000/auth/facebook/callback",
 }, async (accessToken, refreshToken, profile, done) => {
     // Function which gets fired up when we are redirected to /auth/facebook/callback 
-    console.log("Passport callback function fired ---> passportSetup.js", profile);
+    console.log("Passport callback function fired ---> Facebook", profile);
 
     // SO when this is fired, first we will look for that id in the database and if not ever logged in then create a new user
     const oldFacebookUser = await FacebookUser.findOne({ facebookId: profile.id });
@@ -126,7 +125,7 @@ passport.use(new facebookStrategy({
         done(null, oldFacebookUser);
     } else {
         // Adding the new Facebook User
-        const newFacebookUser = await FacebookUser.create({ facebookId: profile.id, displayName: profile.displayName, avatar: profile.photos[0].value });
+        const newFacebookUser = await FacebookUser.create({ facebookId: profile.id, displayName: profile.displayName, avatar: profile.photos[0].value || undefined });
         console.log(`New Facebook User is ---> passportSetup.js ---> ${newFacebookUser}`);
         // Passing the newFacebookUser data in MongoDb to the Serialize user, which will create a encrypted cookie with this info
         done(null, newFacebookUser);

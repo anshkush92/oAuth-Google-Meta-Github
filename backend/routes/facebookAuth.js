@@ -21,8 +21,8 @@ router.get("/logout", (req, res) => {
 // Passport JS takes us to the facebook accounts screen, where we can allow or deny to login from certain account
 router.get("/facebook", passport.authenticate("facebook", {
     // Basically the scope tells what information we wanna retrieve from the facebook account
-    scope: ['profile']
-}))
+    scope: ["public_profile", "email"],
+}), () => { console.log("/auth/facebook") });
 
 // Path ----> auth/facebook/callback -----> 
 // Now we get the code after clicking allow on facebook accounts
