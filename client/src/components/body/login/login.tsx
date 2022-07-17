@@ -27,7 +27,7 @@ const Login = () => {
   let navigate = useNavigate();
 
   const githubAuth = () => {
-    window.open("http://localhost:8000/auth/github");
+    window.open("http://localhost:8000/auth/github", "_self");
   };
 
   const googleAuth = () => {
