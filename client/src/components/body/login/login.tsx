@@ -27,7 +27,7 @@ const Login = () => {
   let navigate = useNavigate();
 
   const facebookAuth = () => {
-    window.open("http://localhost:8000/auth/facebook");
+    window.open("http://localhost:8000/auth/facebook", "_self");
   }
 
   const githubAuth = () => {
