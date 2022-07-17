@@ -6,6 +6,8 @@ const express = require("express");
 const authRoutes = require("./routes/googleAuth");
 // Auth routes for the github
 const githubAuthRoutes = require("./routes/githubAuth");
+// Auth routes for the facebook
+const facebookAuthRoutes = require("./routes/facebookAuth");
 
 // Making sure that the server is able to connect with the database
 const db = require('./config/db');
@@ -62,6 +64,9 @@ app.use("/auth", authRoutes);
 
 // Using the githubAuth Routes for oAuth authentication related to the Github using passsport js
 app.use("/auth", githubAuthRoutes);
+
+// Using the facebookAuth Routes for oAuth authentication related to the facebook using passport js
+app.use("/auth", facebookAuthRoutes);
 
 // Checking whether server is running or not 
 app.get("/", (req, res) => { res.send("Hello World") });
