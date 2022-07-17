@@ -30,7 +30,8 @@ app.use(express.json());
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    // This sessions get expired after 1 min, session encrypted in cookie, cookie expires in 1 min
     cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
 

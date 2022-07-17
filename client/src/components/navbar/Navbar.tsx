@@ -81,8 +81,8 @@ const Navbar = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         dispatch(loginUser());
+        console.log(data);
         const { avatar, displayName, googleId } = data.user;
         dispatch(setUserData({ avatar, displayName, googleId }));
       } else {

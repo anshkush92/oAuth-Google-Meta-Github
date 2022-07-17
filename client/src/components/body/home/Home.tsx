@@ -2,6 +2,7 @@
 import { Grid, Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 // Test -------------------------- Importing the styles / other components ----------------
+import { useAppSelector } from "../../../app/hooks"; 
 import BlogCard from "./BlogCard";
 
 // Test -------------------------- Structure of Props ----------------------------------
@@ -9,6 +10,7 @@ import BlogCard from "./BlogCard";
 // Test -------------------------- The current component ----------------------------------
 const Home = () => {
   let navigate = useNavigate();
+  const isLoggedIn = useAppSelector((state) => state.userStatus.isLoggedIn);
 
   return (
     <>
@@ -70,7 +72,7 @@ const Home = () => {
             fullWidth
             variant="outlined"
             sx={{ height: "100%" }}
-            onClick={() => navigate("/blogs")}
+            onClick={() => navigate(`${isLoggedIn ? "/blogs" : "/login"}`)}
           >
             Explore More Blogs
           </Button>
