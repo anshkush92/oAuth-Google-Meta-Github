@@ -27,6 +27,20 @@ import {
 // Test -------------------------- The current component ----------------------------------
 const Signup = () => {
   const navigate = useNavigate();
+
+  const facebookAuth = () => {
+    window.open("http://localhost:8000/auth/facebook", "_self");
+  };
+
+  const githubAuth = () => {
+    window.open("http://localhost:8000/auth/github", "_self");
+  };
+
+  const googleAuth = () => {
+    // Open the google Auth window, where google accounts are there to authenticate
+    window.open("http://localhost:8000/auth/google", "_self");
+  };
+
   return (
     <Grid
       container
@@ -91,6 +105,7 @@ const Signup = () => {
                 >
                   <Grid item xs={6}>
                     <GoogleButton
+                      onClick={googleAuth}
                       fullWidth
                       variant="contained"
                       sx={{ height: "100%" }}
@@ -102,12 +117,13 @@ const Signup = () => {
                   <Grid item xs={6}>
                     <Stack component="span" spacing={1}>
                       <Grid item>
-                        <Button variant="outlined" fullWidth>
+                        <Button variant="outlined" fullWidth onClick={facebookAuth}>
                           Facebook
                         </Button>
                       </Grid>
                       <Grid item>
                         <GithubButton
+                        onClick={githubAuth}
                           variant="outlined"
                           fullWidth
                           sx={{ "&:hover": { backgroundColor: "grey" } }}
