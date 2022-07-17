@@ -43,9 +43,7 @@ const Navbar = () => {
   const dispatch = useAppDispatch();
 
   const isLoggedIn = useAppSelector((state) => state.userStatus.isLoggedIn);
-  const googleUserData = useAppSelector(
-    (state) => state.userStatus.googleUserData
-  );
+  const userData = useAppSelector((state) => state.userStatus.userData);
 
   const open = Boolean(anchorElement);
 
@@ -83,8 +81,14 @@ const Navbar = () => {
         const data = await response.json();
         dispatch(loginUser());
         console.log(data);
-        const { avatar, displayName, googleId } = data.user;
-        dispatch(setUserData({ avatar, displayName, googleId }));
+        const { avatar, displayName } = data.user;
+        dispatch(
+          setUserData({
+            avatar,
+            displayName,
+            id: data.user.githubId || data.user.googleId,
+          })
+        );
       } else {
         console.log("Authentication failed");
       }
@@ -146,7 +150,10 @@ const Navbar = () => {
 
           <Box>
             <Tooltip title="See all the blogs" arrow>
-              <NavLink to={isLoggedIn ? "/blogs" : "/login"} style={{ textDecoration: "none" }}>
+              <NavLink
+                to={isLoggedIn ? "/blogs" : "/login"}
+                style={{ textDecoration: "none" }}
+              >
                 <IconButton>
                   <FeedIcon sx={{ color: "white" }}></FeedIcon>
                 </IconButton>
@@ -167,12 +174,9 @@ const Navbar = () => {
               <Tooltip title="Click to get different menu items">
                 <>
                   <IconButton onClick={avatarMenuOpenClick}>
-                    <Avatar
-                      src="https://lh3.googleusercontent.com/a-/AFdZucr0poegt0nf1Dhnni7bZWzwSNTvw-HuwUgbF-RgfA=s96-c"
-                      alt={googleUserData.displayName}
-                    />
+                    <Avatar src={userData.avatar} alt={userData.displayName} />
                   </IconButton>
-                  {splitString(googleUserData.displayName)[0]}
+                  {splitString(userData.displayName)[0]}
                   <Menu
                     open={open}
                     anchorEl={anchorElement}

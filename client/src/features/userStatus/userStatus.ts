@@ -2,11 +2,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Test --------------------- Planning the initial State ----------------
-import { googleUserData } from "../../types/googleUserData.type";
+import { userData } from "../../types/userData.type";
 
 const initialState = {
   isLoggedIn: false,
-  googleUserData: {} as googleUserData,
+  userData: {} as userData,
 };
 
 // Test --------------------- Creating the slice ------------------------
@@ -20,8 +20,8 @@ export const userStatusSlice = createSlice({
     logoutUser: (state) => {
       state.isLoggedIn = false;
     },
-    setUserData: (state, action: PayloadAction<googleUserData>) => {
-      state.googleUserData = action.payload;
+    setUserData: (state, action: PayloadAction<userData>) => {
+      state.userData = action.payload;
     },
   },
 });
