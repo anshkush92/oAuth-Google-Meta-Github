@@ -26,6 +26,10 @@ import {
 const Login = () => {
   let navigate = useNavigate();
 
+  const facebookAuth = () => {
+    window.open("http://localhost:8000/auth/facebook");
+  }
+
   const githubAuth = () => {
     window.open("http://localhost:8000/auth/github", "_self");
   };
@@ -84,7 +88,7 @@ const Login = () => {
                 </GoogleButton>
               </Grid>
               <Grid item xs={6}>
-                <Button variant="outlined" fullWidth>
+                <Button variant="outlined" fullWidth onClick={facebookAuth}>
                   Facebook
                 </Button>
               </Grid>
