@@ -50,3 +50,5 @@ passport.use(new googleStrategy({
         done(null, newGoogleUser);
     }
 }))
+
+// Test ----------------------------------- Github oAuth --------------------------------------------
