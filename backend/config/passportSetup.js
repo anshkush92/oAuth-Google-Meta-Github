@@ -3,6 +3,9 @@ require("dotenv").config();
 const passport = require("passport");
 // Using the Schema defined for the Google user
 const GoogleUser = require("../models/googleModel");
+// Using the Schema defined for Github users
+const GithubUser = require("../models/githubModel");
+
 // Using the oAuth2.0 which authenticates the users with their google account
 const googleStrategy = require("passport-google-oauth20").Strategy;
 // Using the oAuth2.0 which authenticates users with their github account
