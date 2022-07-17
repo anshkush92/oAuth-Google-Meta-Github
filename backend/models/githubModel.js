@@ -17,4 +17,4 @@ const githubUser = new Schema({
 
 const GithubUser = mongoose.model("githubUser", githubUser);
 
-module.exports = githubUser;
+module.exports = GithubUser;
