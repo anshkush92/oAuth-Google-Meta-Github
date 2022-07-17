@@ -26,6 +26,10 @@ import {
 const Login = () => {
   let navigate = useNavigate();
 
+  const githubAuth = () => {
+    window.open("http://localhost:8000/auth/github");
+  };
+
   const googleAuth = () => {
     // Open the google Auth window, where google accounts are there to authenticate
     window.open("http://localhost:8000/auth/google", "_self");
@@ -86,6 +90,7 @@ const Login = () => {
               </Grid>
               <Grid item xs={6}>
                 <GithubButton
+                  onClick={githubAuth}
                   variant="outlined"
                   fullWidth
                   sx={{ "&:hover": { backgroundColor: "grey" } }}
