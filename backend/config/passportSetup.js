@@ -5,6 +5,8 @@ const passport = require("passport");
 const GoogleUser = require("../models/googleModel");
 // Using the oAuth2.0 which authenticates the users with their google account
 const googleStrategy = require("passport-google-oauth20").Strategy;
+// Using the oAuth2.0 which authenticates users with their github account
+const githubStrategy = require("passport-github2").Strategy;
 
 // Read the Passport Js workflow to understand better about the Passport Js
 // Test --------------------------- Seriazliing -------------------------------------------------
