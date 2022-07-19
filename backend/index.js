@@ -34,8 +34,8 @@ const PORT = 8000 || process.env.PORT;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Storing the sessions in the databaase
 
+// Storing the sessions in the databaase
 // Adding the session, automatically logs out if the session has expired
 app.use(session({
     secret: process.env.SECRET,
