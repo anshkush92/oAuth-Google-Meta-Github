@@ -19,6 +19,7 @@ const passportSetup = require("./config/passportSetup");
 
 // Session is stored on the server and that session is encrypted on the cookie which is stored on the browser
 const session = require('express-session');
+const MongoStore = require("connect-mongo");
 
 // Passport JS is an middleware 
 const passport = require("passport");
@@ -33,13 +34,14 @@ const PORT = 8000 || process.env.PORT;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Using the auth Routes 
+// Storing the sessions in the databaase
 
 // Adding the session, automatically logs out if the session has expired
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
+    store: new MongoStore({ mongoUrl: process.env.MONGO_DB_ATLAS_URL, dbName: "Sessions-test" }),
     // This sessions get expired after 1 min, session encrypted in cookie, cookie expires in 1 min
     // This removes the cookie from the browser storeage after 30s
     cookie: { maxAge: 0.5 * 60 * 1000 }
