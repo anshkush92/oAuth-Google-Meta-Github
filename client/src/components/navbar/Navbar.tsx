@@ -1,6 +1,6 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   AppBar,
   Box,
@@ -16,24 +16,24 @@ import {
   Paper,
   InputBase,
   Divider,
-} from "@mui/material";
+} from '@mui/material';
 
-import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import FeedIcon from "@mui/icons-material/Feed";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LogoutIcon from "@mui/icons-material/Logout";
-import SettingsIcon from "@mui/icons-material/Settings";
-import SearchIcon from "@mui/icons-material/Search";
-import { VaultButton } from "../../utilities/vault-button";
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import FeedIcon from '@mui/icons-material/Feed';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SettingsIcon from '@mui/icons-material/Settings';
+import SearchIcon from '@mui/icons-material/Search';
+import { VaultButton } from '../../utilities/vault-button';
 
 // Test -------------------------- Importing the styles / other components ----------------
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { splitString } from "../../utilities/splitting-strings";
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { splitString } from '../../utilities/splitting-strings';
 import {
   loginUser,
   logoutUser,
   setUserData,
-} from "../../features/userStatus/userStatus";
+} from '../../features/userStatus/userStatus';
 
 // Test -------------------------- Structure of Props ----------------------------------
 
@@ -58,22 +58,22 @@ const Navbar = () => {
   const logoutHandler = () => {
     setAnchorElement(null);
     // Opens a new window / current in which we moved to the logged out screen
-    window.open("http://localhost:8000/auth/logout", "_self");
+    window.open('http://localhost:8000/auth/logout', '_self');
     dispatch(logoutUser());
   };
 
   useEffect(() => {
     const getUser = async () => {
-      const response = await fetch("http://localhost:8000/auth/login/success", {
-        method: "GET",
-        mode: "cors",
-        credentials: "include",
+      const response = await fetch('http://localhost:8000/auth/login/success', {
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": "true",
-          "Access-Control-Allow-Origin": "http://localhost:3000",
-          "Referrer-Policy": "no-referrer",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': 'true',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
+          'Referrer-Policy': 'no-referrer',
         },
       });
 
@@ -90,17 +90,17 @@ const Navbar = () => {
           })
         );
       } else {
-        console.log("Authentication failed");
+        console.log('Authentication failed');
       }
 
-      console.log("getUser ran successfully");
+      console.log('getUser ran successfully');
     };
 
     getUser();
 
-    console.log("Ran useEffect from Navbar.tsx");
+    console.log('Ran useEffect from Navbar.tsx');
     return () => {
-      console.log("Cleanup Function from Navbar.tsx");
+      console.log('Cleanup Function from Navbar.tsx');
     };
   }, [dispatch]);
 
@@ -109,14 +109,14 @@ const Navbar = () => {
       <AppBar position="static">
         <Toolbar
           sx={{
-            display: "flex",
+            display: 'flex',
             flex: 1,
-            justifyContent: "space-between",
-            backgroundColor: "#67568c",
+            justifyContent: 'space-between',
+            backgroundColor: '#67568c',
           }}
         >
           <Box>
-            <NavLink to="/" style={{ textDecoration: "none" }}>
+            <NavLink to="/" style={{ textDecoration: 'none' }}>
               <VaultButton
                 variant="contained"
                 startIcon={<VpnKeyIcon></VpnKeyIcon>}
@@ -129,8 +129,8 @@ const Navbar = () => {
           <Box flex={0.5}>
             <Paper
               sx={{
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center',
                 pl: 1,
                 pr: 1,
               }}
@@ -141,7 +141,7 @@ const Navbar = () => {
               ></InputBase>
               <Divider
                 flexItem
-                sx={{ m: 0.5, backgroundColor: "red" }}
+                sx={{ m: 0.5, backgroundColor: 'red' }}
                 orientation="vertical"
               />
               <SearchIcon></SearchIcon>
@@ -151,22 +151,24 @@ const Navbar = () => {
           <Box>
             <Tooltip title="See all the blogs" arrow>
               <NavLink
-                to={isLoggedIn ? "/blogs" : "/login"}
-                style={{ textDecoration: "none" }}
+                to={isLoggedIn ? '/blogs' : '/login'}
+                style={{ textDecoration: 'none' }}
               >
                 <IconButton>
-                  <FeedIcon sx={{ color: "white" }}></FeedIcon>
+                  <FeedIcon sx={{ color: 'white' }}></FeedIcon>
                 </IconButton>
               </NavLink>
             </Tooltip>
 
-            <NavLink to="/signup" style={{ textDecoration: "none" }}>
-              <Button sx={{ color: "white" }}>Signup</Button>
-            </NavLink>
+            {!isLoggedIn && (
+              <NavLink to="/signup" style={{ textDecoration: 'none' }}>
+                <Button sx={{ color: 'white' }}>Signup</Button>
+              </NavLink>
+            )}
 
             {!isLoggedIn && (
-              <NavLink to="/login" style={{ textDecoration: "none" }}>
-                <Button sx={{ color: "white" }}>Login</Button>
+              <NavLink to="/login" style={{ textDecoration: 'none' }}>
+                <Button sx={{ color: 'white' }}>Login</Button>
               </NavLink>
             )}
 
